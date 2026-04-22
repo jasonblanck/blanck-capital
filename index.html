@@ -27,13 +27,13 @@ body {
 
 /* ─── NAV ─── */
 /* Offset anchor scroll for fixed nav */
-#philosophy, #portfolio, #approach, #contact, #about { scroll-margin-top: 48px; }
+#philosophy, #portfolio, #approach, #contact, #about { scroll-margin-top: 64px; }
 
 #nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-  height: 48px;
+  height: 64px;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 22px;
+  padding: 0 28px;
   background: rgba(0,0,0,0.8);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -45,7 +45,7 @@ body {
   border-bottom-color: rgba(0,0,0,0.1);
 }
 .nav-logo {
-  font-size: 17px; font-weight: 600; letter-spacing: -0.4px;
+  font-size: 24px; font-weight: 700; letter-spacing: -0.6px;
   color: var(--white); text-decoration: none; transition: color 0.3s;
 }
 #nav.light .nav-logo { color: var(--dark-gray); }
@@ -86,10 +86,10 @@ body {
 
 /* ─── HERO ─── */
 .hero {
-  min-height: 100svh;
+  min-height: 92svh;
   background: var(--black);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 80px 24px 100px;
+  text-align: center; padding: 96px 24px 72px;
   position: relative; overflow: hidden;
 }
 .hero-glow {
@@ -579,6 +579,7 @@ footer {
     <div class="t-item"><svg height="28" viewBox="0 0 236 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 4 C8 4 4 8 4 11 C4 14 5.5 16.5 8 16.5 C10.5 16.5 12 14 12 11 C12 8 8 4 8 4Z" stroke="white" stroke-width="1.4" fill="none"/><path d="M8 16.5 L8 20" stroke="white" stroke-width="1.4" stroke-linecap="round"/><text x="26" y="14" font-family="-apple-system,Helvetica Neue,sans-serif" font-size="15" font-weight="500" fill="white" letter-spacing="-0.3" dominant-baseline="middle">SPRING &amp; MULBERRY INC.</text></svg></div>
     <div class="t-item"><svg height="28" viewBox="0 0 140 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2 L9.8 7.3 L15.5 7.3 L11 10.7 L12.8 16 L8 12.6 L3.2 16 L5 10.7 L0.5 7.3 L6.2 7.3 Z" fill="white"/><text x="26" y="14" font-family="-apple-system,Helvetica Neue,sans-serif" font-size="15" font-weight="500" fill="white" letter-spacing="-0.3" dominant-baseline="middle">Starlab Space</text></svg></div>
   </div>
+</div>
 
 <!-- STATS -->
 <div class="stats-section">
