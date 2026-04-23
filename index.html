@@ -313,6 +313,41 @@ body {
 }
 .dark-card .pc-badge { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.4); }
 
+/* ─── PORTFOLIO HOVER OVERLAY (BFO-style blueprint) ─── */
+.pc-overlay {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 48%;
+  background: #0b1a2d;
+  background-image:
+    linear-gradient(rgba(131,183,234,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(131,183,234,0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+  color: #85b8ee;
+  font-family: 'SF Mono', ui-monospace, Menlo, Monaco, monospace;
+  font-size: 9.5px; letter-spacing: 1.3px;
+  padding: 16px 22px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.16,1,0.3,1);
+  z-index: 2;
+  text-transform: uppercase;
+}
+.pc:hover .pc-overlay { opacity: 1; }
+.pc-ov-head { display: flex; justify-content: space-between; align-items: center; font-weight: 500; }
+.pc-ov-head .dot { color: #7bc0ff; margin-right: 6px; }
+.pc-ov-body { flex: 1; display: flex; align-items: center; justify-content: center; margin: 4px 0; }
+.pc-ov-body svg {
+  height: 48px; width: auto; display: block;
+  stroke: #6fafe0; fill: none; stroke-width: 0.9;
+  opacity: 0.9;
+}
+.pc-ov-meta {
+  display: flex; justify-content: space-between;
+  font-size: 8.8px; color: rgba(131,183,234,0.7);
+  padding-top: 9px; border-top: 1px solid rgba(131,183,234,0.18);
+  letter-spacing: 1.6px;
+}
+
 /* ─── PORTFOLIO EXPAND ─── */
 .port-expand { margin-top: 40px; text-align: center; }
 .port-toggle {
@@ -631,20 +666,20 @@ footer {
       <p class="body-text dark" style="max-width:240px;text-align:right;font-size:15px;">Private markets, public equities, and transformative technology.</p>
     </div>
     <div class="pgrid">
-      <div class="pc dark-card span2 rv"><span class="pc-badge">Private · Pre-IPO</span><span class="pc-tag">Artificial Intelligence</span><div class="pc-name">NEURALINK</div><div class="pc-desc">Brain-computer interface technology merging human cognition with machine intelligence. A generational bet on the future of the human species.</div></div>
-      <div class="pc rv d1"><span class="pc-badge">Private</span><span class="pc-tag">Robotics</span><div class="pc-name">Figure AI</div><div class="pc-desc">General-purpose humanoid robots designed to work alongside humans in the physical world.</div></div>
+      <div class="pc dark-card span2 rv"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · NEURALINK</span><span>REV · PRE-IPO</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><circle cx="30" cy="20" r="14"/><circle cx="30" cy="20" r="9"/><circle cx="30" cy="20" r="4"/><line x1="5" y1="20" x2="55" y2="20" stroke-dasharray="1.5,1.5"/><line x1="30" y1="2" x2="30" y2="38" stroke-dasharray="1.5,1.5"/></svg></div><div class="pc-ov-meta"><span>SECTOR · AI</span><span>STAGE · PRE-IPO</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private · Pre-IPO</span><span class="pc-tag">Artificial Intelligence</span><div class="pc-name">NEURALINK</div><div class="pc-desc">Brain-computer interface technology merging human cognition with machine intelligence. A generational bet on the future of the human species.</div></div>
+      <div class="pc rv d1"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · FIGURE_AI</span><span>REV · SERIES C</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><rect x="24" y="6" width="12" height="9" rx="1.5"/><circle cx="28" cy="11" r="0.9" fill="#6fafe0"/><circle cx="32" cy="11" r="0.9" fill="#6fafe0"/><line x1="30" y1="15" x2="30" y2="20"/><rect x="22" y="20" width="16" height="11"/><line x1="22" y1="24" x2="17" y2="34"/><line x1="38" y1="24" x2="43" y2="34"/><line x1="25" y1="31" x2="25" y2="38"/><line x1="35" y1="31" x2="35" y2="38"/></svg></div><div class="pc-ov-meta"><span>SECTOR · ROBOTICS</span><span>STAGE · PRIVATE</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private</span><span class="pc-tag">Robotics</span><div class="pc-name">Figure AI</div><div class="pc-desc">General-purpose humanoid robots designed to work alongside humans in the physical world.</div></div>
 
-      <div class="pc rv"><span class="pc-badge">Private</span><span class="pc-tag">AI Search</span><div class="pc-name">Perplexity AI</div><div class="pc-desc">The AI-native answer engine challenging the dominance of legacy search.</div></div>
-      <div class="pc rv d1"><span class="pc-badge">Private</span><span class="pc-tag">Prediction Markets</span><div class="pc-name">Kalshi</div><div class="pc-desc">Regulated event contracts — real markets for real probabilities, finally legal.</div></div>
-      <div class="pc rv d2"><span class="pc-badge">Private</span><span class="pc-tag">Defense Tech</span><div class="pc-name">Hermeus</div><div class="pc-desc">Hypersonic aircraft for defense and commercial aviation. Mach 5+.</div></div>
+      <div class="pc rv"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · PERPLEXITY</span><span>REV · SERIES C</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><circle cx="30" cy="20" r="14"/><path d="M 30 6 A 14 14 0 0 1 44 20 A 8 8 0 0 1 30 20 A 4 4 0 0 0 34 20"/></svg></div><div class="pc-ov-meta"><span>SECTOR · AI SEARCH</span><span>STAGE · PRIVATE</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private</span><span class="pc-tag">AI Search</span><div class="pc-name">Perplexity AI</div><div class="pc-desc">The AI-native answer engine challenging the dominance of legacy search.</div></div>
+      <div class="pc rv d1"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · KALSHI</span><span>REV · SERIES B</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><rect x="6" y="24" width="6" height="10"/><rect x="16" y="16" width="6" height="18"/><rect x="26" y="10" width="6" height="24"/><rect x="36" y="20" width="6" height="14"/><rect x="46" y="14" width="6" height="20"/><line x1="4" y1="34" x2="56" y2="34"/></svg></div><div class="pc-ov-meta"><span>SECTOR · MARKETS</span><span>STAGE · PRIVATE</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private</span><span class="pc-tag">Prediction Markets</span><div class="pc-name">Kalshi</div><div class="pc-desc">Regulated event contracts — real markets for real probabilities, finally legal.</div></div>
+      <div class="pc rv d2"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · HERMEUS</span><span>REV · MACH 5</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><path d="M 8 20 L 42 16 L 50 20 L 42 24 Z"/><path d="M 30 16 L 28 8"/><path d="M 30 24 L 28 32"/><line x1="50" y1="20" x2="58" y2="20" stroke-dasharray="1.5,1.5"/></svg></div><div class="pc-ov-meta"><span>SECTOR · AEROSPACE</span><span>STAGE · PRIVATE</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private</span><span class="pc-tag">Defense Tech</span><div class="pc-name">Hermeus</div><div class="pc-desc">Hypersonic aircraft for defense and commercial aviation. Mach 5+.</div></div>
 
-      <div class="pc rv"><span class="pc-badge">Private</span><span class="pc-tag">Space</span><div class="pc-name">Starlab Space</div><div class="pc-desc">The next-generation commercial space station built to succeed the ISS.</div></div>
-      <div class="pc rv d1"><span class="pc-badge">Private</span><span class="pc-tag">Quantum · Security</span><div class="pc-name">SandboxAQ</div><div class="pc-desc">AI and quantum computing solving hard problems in security and pharma.</div></div>
-      <div class="pc rv d2"><span class="pc-badge">Portfolio Co.</span><span class="pc-tag">Consumer · Nutrition</span><div class="pc-name">BTR NATION</div><div class="pc-desc">Superfood protein brand redefining the performance nutrition category.</div></div>
+      <div class="pc rv"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · STARLAB</span><span>REV · HABITAT M1</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><circle cx="30" cy="20" r="7"/><rect x="10" y="18" width="18" height="4"/><rect x="32" y="18" width="18" height="4"/><rect x="6" y="14" width="4" height="12"/><rect x="50" y="14" width="4" height="12"/></svg></div><div class="pc-ov-meta"><span>SECTOR · SPACE</span><span>STAGE · PRIVATE</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private</span><span class="pc-tag">Space</span><div class="pc-name">Starlab Space</div><div class="pc-desc">The next-generation commercial space station built to succeed the ISS.</div></div>
+      <div class="pc rv d1"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · SANDBOXAQ</span><span>REV · Q-LATTICE</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><rect x="16" y="6" width="28" height="28"/><line x1="16" y1="15" x2="44" y2="15"/><line x1="16" y1="24" x2="44" y2="24"/><line x1="25" y1="6" x2="25" y2="34"/><line x1="34" y1="6" x2="34" y2="34"/><circle cx="25" cy="15" r="1.5" fill="#6fafe0"/><circle cx="34" cy="24" r="1.5" fill="#6fafe0"/></svg></div><div class="pc-ov-meta"><span>SECTOR · QUANTUM</span><span>STAGE · PRIVATE</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private</span><span class="pc-tag">Quantum · Security</span><div class="pc-name">SandboxAQ</div><div class="pc-desc">AI and quantum computing solving hard problems in security and pharma.</div></div>
+      <div class="pc rv d2"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · BTR_NATION</span><span>REV · PORTFOLIO</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><polyline points="6,30 18,20 30,23 42,10 54,14"/><circle cx="18" cy="20" r="1.5" fill="#6fafe0"/><circle cx="30" cy="23" r="1.5" fill="#6fafe0"/><circle cx="42" cy="10" r="1.5" fill="#6fafe0"/><line x1="4" y1="36" x2="56" y2="36" stroke-dasharray="1.5,1.5"/></svg></div><div class="pc-ov-meta"><span>SECTOR · CONSUMER</span><span>STAGE · PORTFOLIO</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Portfolio Co.</span><span class="pc-tag">Consumer · Nutrition</span><div class="pc-name">BTR NATION</div><div class="pc-desc">Superfood protein brand redefining the performance nutrition category.</div></div>
 
-      <div class="pc rv"><span class="pc-badge">Private</span><span class="pc-tag">Web3 · Payments</span><div class="pc-name">Ripple</div><div class="pc-desc">Enterprise blockchain reimagining global payment infrastructure.</div></div>
-      <div class="pc rv d1"><span class="pc-badge">Private</span><span class="pc-tag">Consumer</span><div class="pc-name">Liquid Death</div><div class="pc-desc">The most disruptive beverage brand of the decade. Water, murdered.</div></div>
-      <div class="pc rv d2"><span class="pc-badge">Private · Pre-IPO</span><span class="pc-tag">Defense · Autonomy</span><div class="pc-name">Anduril</div><div class="pc-desc">Autonomous defense systems and AI-powered hardware redefining the modern battlefield.</div></div>
+      <div class="pc rv"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · RIPPLE</span><span>REV · XRPL</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><circle cx="12" cy="20" r="3"/><circle cx="46" cy="10" r="3"/><circle cx="46" cy="30" r="3"/><line x1="15" y1="20" x2="43" y2="11"/><line x1="15" y1="20" x2="43" y2="29"/><line x1="46" y1="13" x2="46" y2="27"/></svg></div><div class="pc-ov-meta"><span>SECTOR · WEB3</span><span>STAGE · PRIVATE</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private</span><span class="pc-tag">Web3 · Payments</span><div class="pc-name">Ripple</div><div class="pc-desc">Enterprise blockchain reimagining global payment infrastructure.</div></div>
+      <div class="pc rv d1"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · LIQUID_DEATH</span><span>REV · SERIES E</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><rect x="24" y="5" width="12" height="30" rx="0.8"/><line x1="24" y1="10" x2="36" y2="10"/><rect x="26" y="3" width="8" height="2"/><line x1="28" y1="16" x2="32" y2="16"/><line x1="28" y1="20" x2="32" y2="20"/></svg></div><div class="pc-ov-meta"><span>SECTOR · CONSUMER</span><span>STAGE · PRIVATE</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private</span><span class="pc-tag">Consumer</span><div class="pc-name">Liquid Death</div><div class="pc-desc">The most disruptive beverage brand of the decade. Water, murdered.</div></div>
+      <div class="pc rv d2"><div class="pc-overlay"><div class="pc-ov-head"><span><span class="dot">◉</span>WIREFRAME · ANDURIL</span><span>REV · LATTICE</span></div><div class="pc-ov-body"><svg viewBox="0 0 60 40"><path d="M 30 5 L 50 18 L 44 35 L 16 35 L 10 18 Z"/><line x1="30" y1="5" x2="30" y2="35" stroke-dasharray="1.5,1.5"/><circle cx="30" cy="20" r="2"/></svg></div><div class="pc-ov-meta"><span>SECTOR · DEFENSE</span><span>STAGE · PRE-IPO</span><span>CLASS · EQUITY</span></div></div><span class="pc-badge">Private · Pre-IPO</span><span class="pc-tag">Defense · Autonomy</span><div class="pc-name">Anduril</div><div class="pc-desc">Autonomous defense systems and AI-powered hardware redefining the modern battlefield.</div></div>
     </div>
     <div class="port-expand rv">
       <button class="port-toggle" onclick="togglePort()" aria-expanded="false">
