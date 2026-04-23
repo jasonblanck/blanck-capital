@@ -382,8 +382,8 @@ body {
 .port-more-grid {
   background: var(--white); border: 1px solid var(--light-gray); border-radius: 22px;
   padding: 36px 44px;
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  column-gap: 48px; row-gap: 2px;
+  columns: 3;
+  column-gap: 48px;
   text-align: left;
 }
 .port-more-item {
@@ -393,13 +393,14 @@ body {
   letter-spacing: -0.2px;
   text-decoration: none;
   transition: color 0.2s;
+  break-inside: avoid;
 }
 a.port-more-item:hover { color: var(--blue); }
 @media (max-width: 860px) {
-  .port-more-grid { grid-template-columns: 1fr 1fr; column-gap: 32px; padding: 28px 32px; }
+  .port-more-grid { columns: 2; column-gap: 32px; padding: 28px 32px; }
 }
 @media (max-width: 540px) {
-  .port-more-grid { grid-template-columns: 1fr; padding: 20px 24px; }
+  .port-more-grid { columns: 1; padding: 20px 24px; }
 }
 
 /* ─── QUOTES ─── */
