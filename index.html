@@ -86,10 +86,10 @@ body {
 
 /* ─── HERO ─── */
 .hero {
-  min-height: 92svh;
+  min-height: 84svh;
   background: var(--black);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 96px 24px 72px;
+  text-align: center; padding: 96px 24px 56px;
   position: relative; overflow: hidden;
 }
 .hero-glow {
@@ -177,14 +177,15 @@ body {
 .ticker {
   border-top: 1px solid rgba(255,255,255,0.07);
   border-bottom: 1px solid rgba(255,255,255,0.07);
-  padding: 28px 0; overflow: hidden;
+  padding: 4px 0; overflow: hidden;
   background: rgba(255,255,255,0.025);
+  margin-top: 96px;
 }
-.ticker-track { display: flex; align-items: center; width: max-content; animation: roll 55s linear infinite; }
+.ticker-track { display: flex; align-items: center; width: max-content; animation: roll 55s linear infinite; gap: clamp(48px, 7vw, 76px); }
 .ticker-track:hover { animation-play-state: paused; }
 .t-item {
   display: flex; align-items: center;
-  padding: 0 40px;
+  padding: 0;
   opacity: 0.5;
   transition: opacity 0.3s;
   flex-shrink: 0;
@@ -192,15 +193,15 @@ body {
 }
 .t-item::after {
   content: '';
-  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-  width: 1px; height: 28px;
+  position: absolute; right: calc(clamp(48px, 7vw, 76px) / -2); top: 50%; transform: translateY(-50%);
+  width: 1px; height: clamp(20px, 2.5vw, 28px);
   background: rgba(255,255,255,0.1);
 }
 .t-item:last-child::after { display: none; }
 .t-item:hover { opacity: 0.9; }
-.t-item svg { display: block; flex-shrink: 0; overflow: visible; height: 52px; width: auto; }
+.t-item svg { display: block; flex-shrink: 0; overflow: visible; height: clamp(32px, 4.5vw, 42px); width: auto; }
 .t-logo {
-  display: block; height: 52px; width: auto; flex-shrink: 0;
+  display: block; height: clamp(32px, 4.5vw, 42px); width: auto; flex-shrink: 0;
   filter: brightness(0) invert(1);
   -webkit-user-drag: none; user-select: none;
 }
