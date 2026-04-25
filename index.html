@@ -86,10 +86,10 @@ body {
 
 /* ─── HERO ─── */
 .hero {
-  min-height: 84svh;
+  min-height: calc(100svh - 92px);
   background: var(--black);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 96px 24px 56px;
+  text-align: center; padding: 96px 24px 48px;
   position: relative; overflow: hidden;
 }
 .hero-glow {
@@ -179,7 +179,7 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.07);
   padding: 4px 0; overflow: hidden;
   background: rgba(255,255,255,0.025);
-  margin-top: 96px;
+  margin-top: 40px;
 }
 .ticker-track { display: flex; align-items: center; width: max-content; animation: roll 55s linear infinite; gap: clamp(48px, 7vw, 76px); }
 .ticker-track:hover { animation-play-state: paused; }
