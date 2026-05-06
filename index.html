@@ -85,8 +85,12 @@ body {
 #mob-menu a:hover { color: var(--blue); }
 
 /* ─── HERO ─── */
+.hero-block {
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+}
 .hero {
-  min-height: calc(100svh - 130px);
+  flex: 1 1 auto;
   background: var(--black);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 96px 24px 48px;
@@ -575,7 +579,8 @@ footer {
   <div class="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO + TICKER (anchors ticker to viewport bottom) -->
+<div class="hero-block">
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-chip"><span class="live-dot"></span> New York · Est. 2024</div>
@@ -636,6 +641,7 @@ footer {
     <div class="t-item"><svg height="28" viewBox="0 0 236 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="14" height="16" rx="1" stroke="white" stroke-width="1.4" fill="none"/><line x1="10" y1="3" x2="10" y2="19" stroke="white" stroke-width="1.1"/><line x1="3" y1="9" x2="17" y2="9" stroke="white" stroke-width="1.1"/><line x1="3" y1="14" x2="17" y2="14" stroke="white" stroke-width="1.1"/><text x="26" y="14" font-family="-apple-system,Helvetica Neue,sans-serif" font-size="15" font-weight="500" fill="white" letter-spacing="-0.3" dominant-baseline="middle">SPRING &amp; MULBERRY INC.</text></svg></div>
     <div class="t-item"><img src="logos/Starlab_logo.png" alt="Starlab Space" class="t-logo"></div>
   </div>
+</div>
 </div>
 
 
