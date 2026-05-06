@@ -203,15 +203,13 @@ body {
 }
 .t-item:last-child::after { display: none; }
 .t-item:hover { opacity: 0.9; }
-.t-item svg { display: block; flex-shrink: 0; overflow: visible; height: clamp(32px, 4.5vw, 42px); width: auto; }
+.t-item svg { display: block; flex-shrink: 0; overflow: visible; height: clamp(46px, 6vw, 60px); width: auto; }
 .t-logo {
-  display: block; height: clamp(32px, 4.5vw, 42px); width: auto; flex-shrink: 0;
+  display: block; height: clamp(46px, 6vw, 60px); width: auto; flex-shrink: 0;
   filter: brightness(0) invert(1);
   -webkit-user-drag: none; user-select: none;
   transform-origin: center;
 }
-.t-logo.t-logo-lg { height: clamp(46px, 6vw, 60px); }
-.t-logo.t-logo-sm { height: clamp(26px, 3.5vw, 33px); }
 .t-item.t-tight-l { margin-left: calc(clamp(48px, 7vw, 76px) / -2); }
 @keyframes roll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
