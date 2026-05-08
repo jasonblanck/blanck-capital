@@ -210,6 +210,16 @@ body {
   -webkit-user-drag: none; user-select: none;
   transform-origin: center;
 }
+.t-label {
+  color: white;
+  font-family: -apple-system, "Helvetica Neue", sans-serif;
+  font-size: clamp(36px, 4.7vw, 47px);
+  font-weight: 500;
+  letter-spacing: -0.85px;
+  margin-left: 10px;
+  white-space: nowrap;
+  line-height: 1;
+}
 @keyframes roll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
 /* ─── STATS ─── */
@@ -594,7 +604,7 @@ footer {
 <div class="ticker">
   <div class="ticker-track" id="tt">
     <div class="t-item"><img src="logos/amulet2.png" alt="Amulet Scientific" class="t-logo"></div>
-    <div class="t-item"><svg height="28" viewBox="0 0 196 28" fill="none" xmlns="http://www.w3.org/2000/svg"><image href="logos/ACNEW.webp" x="0" y="0" width="28" height="28" style="filter: brightness(0) invert(1)"/><text x="34" y="15" font-family="-apple-system,Helvetica Neue,sans-serif" font-size="22" font-weight="500" fill="white" letter-spacing="-0.4" dominant-baseline="middle">Ancient Crunch</text></svg></div>
+    <div class="t-item"><img src="logos/ACNEW.webp" alt="Ancient Crunch" class="t-logo"><span class="t-label">Ancient Crunch</span></div>
     <div class="t-item"><img src="logos/anduril.png" alt="Anduril" class="t-logo"></div>
     <div class="t-item"><img src="logos/COBLOGO.png" alt="Cob" class="t-logo"></div>
     <div class="t-item"><img src="logos/Drumroll-Logo-New.png" alt="Drumroll Snacks" class="t-logo t-logo-lg"></div>
@@ -617,7 +627,7 @@ footer {
 
     <!-- DUPLICATE for seamless loop -->
     <div class="t-item"><img src="logos/amulet2.png" alt="Amulet Scientific" class="t-logo"></div>
-    <div class="t-item"><svg height="28" viewBox="0 0 196 28" fill="none" xmlns="http://www.w3.org/2000/svg"><image href="logos/ACNEW.webp" x="0" y="0" width="28" height="28" style="filter: brightness(0) invert(1)"/><text x="34" y="15" font-family="-apple-system,Helvetica Neue,sans-serif" font-size="22" font-weight="500" fill="white" letter-spacing="-0.4" dominant-baseline="middle">Ancient Crunch</text></svg></div>
+    <div class="t-item"><img src="logos/ACNEW.webp" alt="Ancient Crunch" class="t-logo"><span class="t-label">Ancient Crunch</span></div>
     <div class="t-item"><img src="logos/anduril.png" alt="Anduril" class="t-logo"></div>
     <div class="t-item"><img src="logos/COBLOGO.png" alt="Cob" class="t-logo"></div>
     <div class="t-item"><img src="logos/Drumroll-Logo-New.png" alt="Drumroll Snacks" class="t-logo t-logo-lg"></div>
