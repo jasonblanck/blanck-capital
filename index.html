@@ -551,6 +551,7 @@ footer {
   .cat-sub { display: none; }
   .foot-row { flex-direction: column; text-align: center; }
   .foot-links { flex-wrap: wrap; justify-content: center; }
+  .about-grid { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 540px) {
   .pgrid { grid-template-columns: 1fr; }
@@ -558,10 +559,8 @@ footer {
   .stats-grid { grid-template-columns: 1fr; }
   .s-stat { border-right: none !important; }
 }
-@media (max-width: 860px) {
-  .about-grid { grid-template-columns: 1fr !important; }
-}
 </style>
+<noscript><style>.js-counter{display:none;}</style></noscript>
 </head>
 <body>
 
@@ -657,8 +656,8 @@ footer {
 <!-- STATS -->
 <div class="stats-section">
   <div class="stats-grid">
-    <div class="s-stat rv"><span class="s-num" data-to="30">0</span><span class="s-lbl">Portfolio Companies</span></div>
-    <div class="s-stat rv d1"><span class="s-num" data-to="7">0</span><span class="s-lbl">Asset Classes</span></div>
+    <div class="s-stat rv"><span class="s-num js-counter" data-to="30">0</span><noscript><span class="s-num">30+</span></noscript><span class="s-lbl">Portfolio Companies</span></div>
+    <div class="s-stat rv d1"><span class="s-num js-counter" data-to="7">0</span><noscript><span class="s-num">7</span></noscript><span class="s-lbl">Asset Classes</span></div>
     <div class="s-stat rv d2"><span class="s-num">∞</span><span class="s-lbl">Time Horizon</span></div>
     <div class="s-stat rv d3"><span class="s-num">1</span><span class="s-lbl">Standard: Excellence</span></div>
   </div>
