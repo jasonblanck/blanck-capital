@@ -556,7 +556,45 @@ footer {
   .c-cards { grid-template-columns: 1fr; }
   .c-card { border-right: none; border-bottom: 1px solid var(--light-gray); }
   .c-card:last-child { border-bottom: none; }
-  .cat-sub { display: none; }
+  .cat-row {
+    flex-wrap: wrap;
+    cursor: pointer;
+    padding: 20px 0;
+  }
+  .cat-arr {
+    opacity: 1;
+    order: 2;
+    transform: rotate(0deg);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s;
+  }
+  .cat-sub {
+    display: block;
+    width: 100%;
+    order: 3;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    text-align: left;
+    max-width: 100%;
+    padding-left: 56px;
+    font-size: 14px;
+    color: var(--mid-gray);
+    margin-top: 0;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, margin-top 0.3s ease;
+    box-sizing: border-box;
+  }
+  .cat-row.expanded .cat-sub {
+    max-height: 100px;
+    opacity: 1;
+    margin-top: 12px;
+  }
+  .cat-row.expanded .cat-title {
+    color: var(--blue);
+  }
+  .cat-row.expanded .cat-arr {
+    transform: rotate(90deg);
+    color: var(--blue);
+  }
   .foot-row { flex-direction: column; text-align: center; }
   .foot-links { flex-wrap: wrap; justify-content: center; }
   .about-grid { grid-template-columns: 1fr !important; }
@@ -1009,6 +1047,24 @@ function togglePort() {
     if (!e.target.closest('a.pc')) {
       cards.forEach(c => c.classList.remove('armed'));
     }
+  });
+})();
+
+// Accordion for "Where We Invest" categories on mobile
+(function(){
+  const catRows = document.querySelectorAll('.cat-row');
+  catRows.forEach(row => {
+    row.addEventListener('click', () => {
+      if (window.innerWidth <= 860) {
+        const isExpanded = row.classList.contains('expanded');
+        // Collapse all others
+        catRows.forEach(r => r.classList.remove('expanded'));
+        // Toggle this one
+        if (!isExpanded) {
+          row.classList.add('expanded');
+        }
+      }
+    });
   });
 })();
 
