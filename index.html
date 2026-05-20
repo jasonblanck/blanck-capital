@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blanck Capital</title>
+<meta name="description" content="Blanck Capital is a private family office based in New York, backing the founders, ideas, and companies defining the next century.">
+<meta property="og:title" content="Blanck Capital">
+<meta property="og:description" content="A private family office investing in tomorrow's world.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blanckcapital.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blanck Capital">
+<meta name="twitter:description" content="A private family office investing in tomorrow's world.">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -61,7 +69,7 @@ body {
 #nav.light .nav-links a { color: rgba(0,0,0,0.55); }
 #nav.light .nav-links a:hover { color: var(--dark-gray); }
 .nav-cta { font-size: 12px; color: var(--blue); text-decoration: none; }
-.ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: transparent; border: none; padding: 0; color: var(--white); }
 .ham span { display: block; width: 18px; height: 1px; background: currentColor; transition: all 0.3s; }
 #nav.light .ham { color: var(--dark-gray); }
 
@@ -582,7 +590,7 @@ footer {
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Inquire →</a>
-  <div class="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  <button class="ham" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO + TICKER (anchors ticker to viewport bottom) -->
@@ -606,19 +614,19 @@ footer {
     <div class="t-item"><img src="logos/ACNEW.webp" alt="Ancient Crunch" class="t-logo"><span class="t-label">Ancient Crunch</span></div>
     <div class="t-item"><img src="logos/anduril.png" alt="Anduril" class="t-logo"></div>
     <div class="t-item"><img src="logos/COBLOGO.png" alt="Cob" class="t-logo"></div>
-    <div class="t-item"><img src="logos/Drumroll-Logo-New.png" alt="Drumroll Snacks" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/Drumroll-Logo-New.png" alt="Drumroll Snacks" class="t-logo"></div>
     <div class="t-item"><img src="logos/figure.webp" alt="Figure AI" class="t-logo"></div>
-    <div class="t-item"><img src="logos/GHIA%20LOGO.png" alt="GHIA" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/GHIA%20LOGO.png" alt="GHIA" class="t-logo"></div>
     <div class="t-item"><img src="logos/hermeusnew.png" alt="Hermeus" class="t-logo"></div>
     <div class="t-item"><img src="logos/l3.png" alt="L3 Campus" class="t-logo"></div>
-    <div class="t-item"><img src="logos/Liquid-Death-Logo-2026.png" alt="Liquid Death" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/Liquid-Death-Logo-2026.png" alt="Liquid Death" class="t-logo"></div>
     <div class="t-item"><img src="logos/longnew.png" alt="Longshot Space" class="t-logo"></div>
     <div class="t-item"><img src="logos/NEUMA.png" alt="Neuma" class="t-logo"></div>
     <div class="t-item"><img src="logos/Neuralink_logo.svg.png" alt="Neuralink" class="t-logo"></div>
-    <div class="t-item"><img src="logos/newyorkanew.png" alt="New York Atlantics Padel" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/newyorkanew.png" alt="New York Atlantics Padel" class="t-logo"></div>
     <div class="t-item"><img src="logos/onebrief.png" alt="OneBrief" class="t-logo"></div>
     <div class="t-item"><img src="logos/Perplexity_AI_logo.svg.png" alt="Perplexity AI" class="t-logo"></div>
-    <div class="t-item"><img src="logos/repurpose.png" alt="Repurpose" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/repurpose.png" alt="Repurpose" class="t-logo"></div>
     <div class="t-item"><img src="logos/Ripple_logo.svg.png" alt="Ripple" class="t-logo"></div>
     <div class="t-item"><img src="logos/SandboxAQ-Logo-Accent-Color-Black.png" alt="SandboxAQ" class="t-logo"></div>
     <div class="t-item"><img src="logos/shieldai.png" alt="Shield AI" class="t-logo"></div>
@@ -631,19 +639,19 @@ footer {
     <div class="t-item"><img src="logos/ACNEW.webp" alt="Ancient Crunch" class="t-logo"><span class="t-label">Ancient Crunch</span></div>
     <div class="t-item"><img src="logos/anduril.png" alt="Anduril" class="t-logo"></div>
     <div class="t-item"><img src="logos/COBLOGO.png" alt="Cob" class="t-logo"></div>
-    <div class="t-item"><img src="logos/Drumroll-Logo-New.png" alt="Drumroll Snacks" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/Drumroll-Logo-New.png" alt="Drumroll Snacks" class="t-logo"></div>
     <div class="t-item"><img src="logos/figure.webp" alt="Figure AI" class="t-logo"></div>
-    <div class="t-item"><img src="logos/GHIA%20LOGO.png" alt="GHIA" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/GHIA%20LOGO.png" alt="GHIA" class="t-logo"></div>
     <div class="t-item"><img src="logos/hermeusnew.png" alt="Hermeus" class="t-logo"></div>
     <div class="t-item"><img src="logos/l3.png" alt="L3 Campus" class="t-logo"></div>
-    <div class="t-item"><img src="logos/Liquid-Death-Logo-2026.png" alt="Liquid Death" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/Liquid-Death-Logo-2026.png" alt="Liquid Death" class="t-logo"></div>
     <div class="t-item"><img src="logos/longnew.png" alt="Longshot Space" class="t-logo"></div>
     <div class="t-item"><img src="logos/NEUMA.png" alt="Neuma" class="t-logo"></div>
     <div class="t-item"><img src="logos/Neuralink_logo.svg.png" alt="Neuralink" class="t-logo"></div>
-    <div class="t-item"><img src="logos/newyorkanew.png" alt="New York Atlantics Padel" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/newyorkanew.png" alt="New York Atlantics Padel" class="t-logo"></div>
     <div class="t-item"><img src="logos/onebrief.png" alt="OneBrief" class="t-logo"></div>
     <div class="t-item"><img src="logos/Perplexity_AI_logo.svg.png" alt="Perplexity AI" class="t-logo"></div>
-    <div class="t-item"><img src="logos/repurpose.png" alt="Repurpose" class="t-logo t-logo-lg"></div>
+    <div class="t-item"><img src="logos/repurpose.png" alt="Repurpose" class="t-logo"></div>
     <div class="t-item"><img src="logos/Ripple_logo.svg.png" alt="Ripple" class="t-logo"></div>
     <div class="t-item"><img src="logos/SandboxAQ-Logo-Accent-Color-Black.png" alt="SandboxAQ" class="t-logo"></div>
     <div class="t-item"><img src="logos/shieldai.png" alt="Shield AI" class="t-logo"></div>
@@ -762,9 +770,9 @@ footer {
     <div class="q-text" id="qText"></div>
     <div class="q-attr" id="qAttr"></div>
     <div class="q-controls">
-      <button class="q-btn" onclick="qMove(-1)">‹</button>
-      <div id="qDots"></div>
-      <button class="q-btn" onclick="qMove(1)">›</button>
+      <button class="q-btn" aria-label="Previous quote" onclick="qMove(-1)">‹</button>
+      <div id="qDots" role="tablist" aria-label="Select quote"></div>
+      <button class="q-btn" aria-label="Next quote" onclick="qMove(1)">›</button>
     </div>
   </div>
 </div>
@@ -926,6 +934,8 @@ function buildDots() {
   QS.forEach((_, i) => {
     const b = document.createElement('button');
     b.className = 'q-dot' + (i === qi ? ' on' : '');
+    b.setAttribute('aria-label', 'Quote ' + (i + 1) + ' of ' + QS.length);
+    b.setAttribute('aria-selected', i === qi ? 'true' : 'false');
     b.onclick = () => setQ(i);
     qDots.appendChild(b);
   });
@@ -974,8 +984,26 @@ function togglePort() {
 
 // Mobile menu
 let mobOpen = false;
-function toggleMob() { mobOpen = !mobOpen; document.getElementById('mob-menu').classList.toggle('open', mobOpen); document.body.style.overflow = mobOpen ? 'hidden' : ''; }
-function closeMob() { mobOpen = false; document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow = ''; }
+function toggleMob() {
+  mobOpen = !mobOpen;
+  document.getElementById('mob-menu').classList.toggle('open', mobOpen);
+  document.body.style.overflow = mobOpen ? 'hidden' : '';
+  const ham = document.querySelector('.ham');
+  if (ham) {
+    ham.setAttribute('aria-expanded', mobOpen ? 'true' : 'false');
+    ham.setAttribute('aria-label', mobOpen ? 'Close menu' : 'Open menu');
+  }
+}
+function closeMob() {
+  mobOpen = false;
+  document.getElementById('mob-menu').classList.remove('open');
+  document.body.style.overflow = '';
+  const ham = document.querySelector('.ham');
+  if (ham) {
+    ham.setAttribute('aria-expanded', 'false');
+    ham.setAttribute('aria-label', 'Open menu');
+  }
+}
 </script>
 </body>
 </html>
