@@ -962,7 +962,11 @@ function checkNav() {
   nav.classList.toggle('light', light);
 }
 
-// Recalculate on load and resize to handle dynamic layouts correctly
+// Recalculate on DOMContentLoaded, load, and resize to handle dynamic layouts correctly
+window.addEventListener('DOMContentLoaded', () => {
+  cacheOffsets();
+  checkNav();
+});
 window.addEventListener('load', () => {
   cacheOffsets();
   checkNav();
@@ -970,6 +974,10 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', () => {
   cacheOffsets();
   checkNav();
+  // Close mobile menu if window is resized beyond mobile breakpoint to prevent scroll lock
+  if (window.innerWidth > 860 && mobOpen) {
+    closeMob();
+  }
 });
 window.addEventListener('scroll', checkNav, { passive: true });
 
@@ -1051,15 +1059,18 @@ function togglePort() {
   btn.querySelector('.port-toggle-label').textContent = open ? 'Show less' : 'Show all investments';
 }
 
-// Two-click portfolio cards: first click reveals overlay, second click navigates
+// Two-click portfolio cards on touch devices; direct navigation on hover-capable devices
 (function(){
   const cards = document.querySelectorAll('a.pc');
   cards.forEach(card => {
     card.addEventListener('click', (e) => {
-      if (!card.classList.contains('armed')) {
-        e.preventDefault();
-        cards.forEach(c => { if (c !== card) c.classList.remove('armed'); });
-        card.classList.add('armed');
+      // If the device does NOT support hover (touch interface)
+      if (!window.matchMedia('(hover: hover)').matches) {
+        if (!card.classList.contains('armed')) {
+          e.preventDefault();
+          cards.forEach(c => { if (c !== card) c.classList.remove('armed'); });
+          card.classList.add('armed');
+        }
       }
     });
   });
