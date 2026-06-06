@@ -12,6 +12,72 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Blanck Capital">
 <meta name="twitter:description" content="A private family office investing in tomorrow's world.">
+
+<!-- Structured Data (JSON-LD) to help Google Search index entities and generate a Knowledge Panel (People Card) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blanckcapital.com/#organization",
+      "name": "Blanck Capital",
+      "url": "https://blanckcapital.com",
+      "logo": "https://blanckcapital.com/logos/ACNEW.webp",
+      "description": "Blanck Capital is a private family office based in New York, backing the founders, ideas, and companies defining the next century.",
+      "foundingDate": "2024",
+      "location": {
+        "@type": "Place",
+        "name": "New York, NY"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://blanckcapital.com/#jasonblanck",
+      "name": "Jason K. Blanck",
+      "jobTitle": "Founder & Principal",
+      "worksFor": {
+        "@id": "https://blanckcapital.com/#organization"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Cornell University"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "S.I. Newhouse School of Public Communications at Syracuse University"
+        }
+      ],
+      "url": "https://blanckcapital.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/jason-blanck",
+        "https://www.crunchbase.com/person/jason-blanck"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://blanckcapital.com/#eliseblanck",
+      "name": "Elise Jacobs Blanck",
+      "jobTitle": "Co-Founder",
+      "worksFor": {
+        "@id": "https://blanckcapital.com/#organization"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Cornell University"
+        }
+      ],
+      "url": "https://blanckcapital.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/elise-jacobs-blanck"
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
