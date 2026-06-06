@@ -13,71 +13,76 @@
 <meta name="twitter:title" content="Blanck Capital">
 <meta name="twitter:description" content="A private family office investing in tomorrow's world.">
 
-<!-- Structured Data (JSON-LD) to help Google Search index entities and generate a Knowledge Panel (People Card) -->
+<!-- Structured Data (JSON-LD) for Jason Blanck (CEO) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "Person",
+  "name": "Jason Blanck",
+  "jobTitle": "Chief Executive Officer",
+  "worksFor": {
+    "@type": "InvestmentCompany",
+    "name": "Blanck Capital",
+    "url": "https://blanckcapital.com"
+  },
+  "alumniOf": [
     {
-      "@type": "Organization",
-      "@id": "https://blanckcapital.com/#organization",
-      "name": "Blanck Capital",
-      "url": "https://blanckcapital.com",
-      "logo": "https://blanckcapital.com/logos/ACNEW.webp",
-      "description": "Blanck Capital is a private family office based in New York, backing the founders, ideas, and companies defining the next century.",
-      "foundingDate": "2024",
-      "location": {
-        "@type": "Place",
-        "name": "New York, NY"
-      }
+      "@type": "EducationalOrganization",
+      "name": "Cornell University"
     },
     {
-      "@type": "Person",
-      "@id": "https://blanckcapital.com/#jasonblanck",
-      "name": "Jason Blanck",
-      "jobTitle": "Chief Executive Officer",
-      "worksFor": {
-        "@id": "https://blanckcapital.com/#organization"
-      },
-      "alumniOf": [
-        {
-          "@type": "EducationalOrganization",
-          "name": "Cornell University"
-        },
-        {
-          "@type": "EducationalOrganization",
-          "name": "Syracuse University"
-        }
-      ],
-      "url": "https://blanckcapital.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/jasonblanck",
-        "https://www.crunchbase.com/person/jason-blanck",
-        "https://pitchbook.com/profiles/investor/698085-19#overview",
-        "https://www.instagram.com/jasonblanck/",
-        "https://www.wikidata.org/wiki/Q140077968"
-      ]
-    },
-    {
-      "@type": "Person",
-      "@id": "https://blanckcapital.com/#eliseblanck",
-      "name": "Elise Jacobs Blanck",
-      "jobTitle": "Co-Founder",
-      "worksFor": {
-        "@id": "https://blanckcapital.com/#organization"
-      },
-      "alumniOf": [
-        {
-          "@type": "EducationalOrganization",
-          "name": "Cornell University"
-        }
-      ],
-      "url": "https://blanckcapital.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/elise-jacobs-blanck"
-      ]
+      "@type": "EducationalOrganization",
+      "name": "Syracuse University"
     }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/jasonblanck",
+    "https://www.crunchbase.com/person/jason-blanck",
+    "https://pitchbook.com/profiles/investor/698085-19#overview",
+    "https://www.instagram.com/jasonblanck/",
+    "https://www.wikidata.org/wiki/Q140077968"
   ]
+}
+</script>
+
+<!-- Structured Data (JSON-LD) for Elise Jacobs Blanck (Co-Founder) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Elise Jacobs Blanck",
+  "jobTitle": "Co-Founder",
+  "worksFor": {
+    "@type": "InvestmentCompany",
+    "name": "Blanck Capital",
+    "url": "https://blanckcapital.com"
+  },
+  "alumniOf": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "Cornell University"
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/elise-jacobs-blanck"
+  ]
+}
+</script>
+
+<!-- Structured Data (JSON-LD) for Blanck Capital Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Blanck Capital",
+  "url": "https://blanckcapital.com",
+  "logo": "https://blanckcapital.com/logos/ACNEW.webp",
+  "description": "Blanck Capital is a private family office based in New York, backing the founders, ideas, and companies defining the next century.",
+  "foundingDate": "2024",
+  "location": {
+    "@type": "Place",
+    "name": "New York, NY"
+  }
 }
 </script>
 
