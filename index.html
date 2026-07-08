@@ -830,7 +830,7 @@ footer {
 <!-- STATS -->
 <div class="stats-section">
   <div class="stats-grid">
-    <div class="s-stat rv"><span class="s-num js-counter" data-to="30">0</span><noscript><span class="s-num">30+</span></noscript><span class="s-lbl">Portfolio Companies</span></div>
+    <div class="s-stat rv"><span class="s-num js-counter" data-to="30" data-append="+">0</span><noscript><span class="s-num">30+</span></noscript><span class="s-lbl">Portfolio Companies</span></div>
     <div class="s-stat rv d1"><span class="s-num js-counter" data-to="7">0</span><noscript><span class="s-num">7</span></noscript><span class="s-lbl">Asset Classes</span></div>
     <div class="s-stat rv d2"><span class="s-num">∞</span><span class="s-lbl">Time Horizon</span></div>
     <div class="s-stat rv d3"><span class="s-num">1</span><span class="s-lbl">Standard: Excellence</span></div>
@@ -1108,7 +1108,7 @@ function animCount(el, target, dur) {
     if (!s) s = ts;
     const p = Math.min((ts - s) / dur, 1);
     const v = Math.floor((1 - Math.pow(1 - p, 3)) * target);
-    el.textContent = v + (target === 30 ? '+' : '');
+    el.textContent = v + (el.dataset.append || '');
     if (p < 1) requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
