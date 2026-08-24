@@ -17,106 +17,120 @@
 <meta name="twitter:description" content="A private family office investing in tomorrow's world.">
 <meta name="twitter:image" content="https://blanckcapital.com/logos/ACNEW.webp">
 
-<!-- Structured Data (JSON-LD) for Jason Blanck (CEO) -->
+<!-- Structured Data (JSON-LD) Graph for Knowledge Graph Optimization -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Jason Blanck",
-  "alternateName": "Jason K. Blanck",
-  "image": "https://blanckcapital.com/logos/jason-blanck.jpg",
-  "jobTitle": "Chief Executive Officer",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Blanck Capital",
-    "url": "https://blanckcapital.com"
-  },
-  "alumniOf": [
+  "@graph": [
     {
-      "@type": "EducationalOrganization",
-      "name": "Cornell University"
+      "@type": "Organization",
+      "@id": "https://blanckcapital.com/#organization",
+      "name": "Blanck Capital",
+      "url": "https://blanckcapital.com",
+      "logo": "https://blanckcapital.com/logos/ACNEW.webp",
+      "image": "https://blanckcapital.com/logos/ACNEW.webp",
+      "description": "Blanck Capital is a private family office based in New York, backing the founders, ideas, and companies defining the next century.",
+      "foundingDate": "2024",
+      "location": {
+        "@type": "Place",
+        "name": "New York, NY"
+      },
+      "founder": [
+        {
+          "@id": "https://blanckcapital.com/#jasonblanck"
+        },
+        {
+          "@id": "https://blanckcapital.com/#eliseblanck"
+        }
+      ],
+      "knowsAbout": [
+        "Venture Capital",
+        "Private Equity",
+        "Family Office",
+        "Angel Investing",
+        "Real Estate Entrepreneurship"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "jason@blanckcapital.com",
+        "contactType": "investor relations"
+      }
     },
     {
-      "@type": "EducationalOrganization",
-      "name": "Syracuse University"
-    }
-  ],
-  "sameAs": [
-    "https://x.com/jasonblanck",
-    "https://www.linkedin.com/in/jasonblanck",
-    "https://www.crunchbase.com/person/jason-blanck",
-    "https://pitchbook.com/profiles/investor/698085-19#overview",
-    "https://www.instagram.com/jasonblanck/",
-    "https://www.wikidata.org/wiki/Q140077968"
-  ]
-}
-</script>
-
-<!-- Structured Data (JSON-LD) for Elise Jacobs Blanck (Co-Founder) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Elise Jacobs Blanck",
-  "image": "https://blanckcapital.com/logos/elise-blanck.jpg",
-  "jobTitle": "Co-Founder",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Blanck Capital",
-    "url": "https://blanckcapital.com"
-  },
-  "alumniOf": [
-    {
-      "@type": "EducationalOrganization",
-      "name": "Cornell University"
-    }
-  ],
-  "sameAs": [
-    "https://www.linkedin.com/in/elise-jacobs-blanck"
-  ]
-}
-</script>
-
-<!-- Structured Data (JSON-LD) for Blanck Capital Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Blanck Capital",
-  "url": "https://blanckcapital.com",
-  "logo": "https://blanckcapital.com/logos/ACNEW.webp",
-  "description": "Blanck Capital is a private family office based in New York, backing the founders, ideas, and companies defining the next century.",
-  "foundingDate": "2024",
-  "location": {
-    "@type": "Place",
-    "name": "New York, NY"
-  },
-  "founder": [
-    {
       "@type": "Person",
+      "@id": "https://blanckcapital.com/#jasonblanck",
       "name": "Jason Blanck",
-      "url": "https://blanckcapital.com",
-      "jobTitle": "Chief Executive Officer"
+      "alternateName": "Jason K. Blanck",
+      "image": "https://blanckcapital.com/logos/jason-blanck.jpg",
+      "jobTitle": "Chief Executive Officer",
+      "worksFor": {
+        "@id": "https://blanckcapital.com/#organization"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Cornell University"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Syracuse University"
+        }
+      ],
+      "sameAs": [
+        "https://x.com/jasonblanck",
+        "https://www.linkedin.com/in/jasonblanck",
+        "https://www.crunchbase.com/person/jason-blanck",
+        "https://pitchbook.com/profiles/investor/698085-19",
+        "https://www.instagram.com/jasonblanck/",
+        "https://www.wikidata.org/wiki/Q140077968"
+      ]
     },
     {
       "@type": "Person",
+      "@id": "https://blanckcapital.com/#eliseblanck",
       "name": "Elise Jacobs Blanck",
+      "image": "https://blanckcapital.com/logos/elise-blanck.jpg",
+      "jobTitle": "Co-Founder",
+      "worksFor": {
+        "@id": "https://blanckcapital.com/#organization"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Cornell University"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/elise-jacobs-blanck"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blanckcapital.com/#website",
+      "name": "Blanck Capital",
       "url": "https://blanckcapital.com",
-      "jobTitle": "Co-Founder"
+      "publisher": {
+        "@id": "https://blanckcapital.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blanckcapital.com/#webpage",
+      "name": "Blanck Capital | Private Family Office",
+      "url": "https://blanckcapital.com",
+      "isPartOf": {
+        "@id": "https://blanckcapital.com/#website"
+      },
+      "about": [
+        {
+          "@id": "https://blanckcapital.com/#organization"
+        },
+        {
+          "@id": "https://blanckcapital.com/#jasonblanck"
+        }
+      ]
     }
-  ],
-  "knowsAbout": [
-    "Venture Capital",
-    "Private Equity",
-    "Family Office",
-    "Angel Investing",
-    "Real Estate Entrepreneurship"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "jason@blanckcapital.com",
-    "contactType": "investor relations"
-  }
+  ]
 }
 </script>
 
