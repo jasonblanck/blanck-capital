@@ -846,7 +846,7 @@ footer {
     <div class="t-item"><img src="logos/Drumroll-Logo-New.png" alt="Drumroll Snacks" class="t-logo"></div>
     <div class="t-item"><img src="logos/figure.webp" alt="Figure AI" class="t-logo"></div>
     <div class="t-item"><img src="logos/firestorm.png" alt="Firestorm" class="t-logo" style="height: clamp(52px, 6.8vw, 68px);"></div>
-    <div class="t-item"><img src="logos/GHIA%20LOGO.png" alt="GHIA" class="t-logo"></div>
+    <div class="t-item"><img src="logos/ghia.png" alt="GHIA" class="t-logo"></div>
     <div class="t-item"><img src="logos/hermeusnew.png" alt="Hermeus" class="t-logo"></div>
     <div class="t-item"><img src="logos/intactis_bio.png" alt="Intactis Bio" class="t-logo" style="height: clamp(52px, 6.8vw, 68px);"></div>
     <div class="t-item"><img src="logos/l3.png" alt="L3 Campus" class="t-logo" style="height: clamp(56px, 7.2vw, 72px);"></div>
@@ -876,7 +876,7 @@ footer {
     <div class="t-item"><img src="logos/Drumroll-Logo-New.png" alt="Drumroll Snacks" class="t-logo"></div>
     <div class="t-item"><img src="logos/figure.webp" alt="Figure AI" class="t-logo"></div>
     <div class="t-item"><img src="logos/firestorm.png" alt="Firestorm" class="t-logo" style="height: clamp(52px, 6.8vw, 68px);"></div>
-    <div class="t-item"><img src="logos/GHIA%20LOGO.png" alt="GHIA" class="t-logo"></div>
+    <div class="t-item"><img src="logos/ghia.png" alt="GHIA" class="t-logo"></div>
     <div class="t-item"><img src="logos/hermeusnew.png" alt="Hermeus" class="t-logo"></div>
     <div class="t-item"><img src="logos/intactis_bio.png" alt="Intactis Bio" class="t-logo" style="height: clamp(52px, 6.8vw, 68px);"></div>
     <div class="t-item"><img src="logos/l3.png" alt="L3 Campus" class="t-logo" style="height: clamp(56px, 7.2vw, 72px);"></div>
@@ -1137,10 +1137,11 @@ const lightSections = document.querySelectorAll('.stats-section,.sec-white');
 let sectionOffsets = [];
 
 function cacheOffsets() {
-  sectionOffsets = Array.from(lightSections).map(s => ({
-    top: s.offsetTop,
-    bottom: s.offsetTop + s.offsetHeight
-  }));
+  sectionOffsets = Array.from(lightSections).map(s => {
+    const rect = s.getBoundingClientRect();
+    const top = rect.top + window.scrollY;
+    return { top, bottom: top + rect.height };
+  });
 }
 
 function checkNav() {
