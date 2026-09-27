@@ -324,8 +324,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .contact-main p{margin-top:16px;font-size:17px;color:var(--bone-muted)}
 .contact-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border:1px solid rgba(237,234,227,.35);font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--bone);text-decoration:none;transition:border-color .25s,color .25s}
 .contact-btn:hover{border-color:var(--brass);color:var(--brass)}
-.legal{margin-top:72px;border-top:1px solid var(--rule-dark);padding-top:24px;display:flex;justify-content:space-between;gap:40px;font-size:13px;color:var(--bone-dim);line-height:1.6}
-.legal p:last-child{max-width:640px;text-align:right}
+.legal{margin-top:72px;border-top:1px solid var(--rule-dark);padding-top:24px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;font-size:13px;color:var(--bone-dim);line-height:1.6}
+.legal-disclaimer{max-width:540px;text-align:right}
+.back-to-top{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:-10px;font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--bone-dim);text-decoration:none;white-space:nowrap;transition:color .25s}
+.back-to-top:hover,.back-to-top:focus-visible{color:var(--bone)}
 
 /* press */
 .press-head h2{margin-top:24px;font-size:64px;color:var(--ink)}
@@ -392,7 +394,8 @@ body{font-feature-settings:"kern","liga","calt"}
   .founders{grid-template-columns:1fr}
   .legal{flex-direction:column;gap:12px}
   .press-item{grid-template-columns:1fr;gap:32px}
-  .legal p:last-child{text-align:left}
+  .legal-disclaimer{text-align:left;max-width:none}
+  .back-to-top{margin-top:0}
 }
 @media (max-width:640px){
   :root{--gutter:20px}
@@ -623,7 +626,8 @@ body{font-feature-settings:"kern","liga","calt"}
   </div>
   <div class="legal">
     <p>© <span id="yr">2026</span> Blanck Capital LLC · New York, NY</p>
-    <p>Blanck Capital LLC is a private family office. Nothing on this site is investment advice, a solicitation, or an offer to buy or sell any security.</p>
+    <p class="legal-disclaimer">Blanck Capital LLC is a private family office. Nothing on this site is investment advice, a solicitation, or an offer to buy or sell any security.</p>
+    <a class="back-to-top" href="#main">Back to top <span aria-hidden="true">↑</span></a>
   </div>
 </footer>
 
