@@ -363,6 +363,21 @@ body{font-feature-settings:"kern","liga","calt"}
 .theme a:hover::after,.theme a:focus-visible::after{opacity:1;transform:none}
 .film-cap{margin-top:16px;display:flex;justify-content:space-between;gap:16px;font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--bone-dim)}
 
+/* quotes */
+.quotes-sec{background:var(--ink);border-top:1px solid var(--rule-dark);padding:110px var(--gutter);text-align:center;position:relative;overflow:hidden}
+.quotes-wrap{max-width:860px;margin:0 auto;position:relative;z-index:2}
+.quotes-text{font-family:var(--font-serif);font-style:italic;font-size:clamp(28px,4vw,48px);line-height:1.25;color:var(--bone);min-height:180px;display:flex;align-items:center;justify-content:center;margin-top:28px;opacity:0;transform:translateY(12px);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.quotes-text.show{opacity:1;transform:none}
+.quotes-attr{margin-top:24px;font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:var(--brass)}
+.quotes-ctrls{margin-top:40px;display:flex;align-items:center;justify-content:center;gap:14px}
+.q-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(237,234,227,.25);color:var(--bone-muted);display:flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s}
+.q-arrow:hover,.q-arrow:focus-visible{color:var(--brass);border-color:var(--brass)}
+.q-arrow svg{width:14px;height:14px;fill:currentColor}
+.q-dots{display:flex;align-items:center;gap:10px}
+.q-dot{width:8px;height:8px;border-radius:50%;background:rgba(237,234,227,.25);border:0;cursor:pointer;padding:16px 0;box-sizing:content-box;background-clip:content-box;transition:background .3s,width .3s}
+.q-dot:hover,.q-dot:focus-visible{background:var(--bone)}
+.q-dot.on{width:24px;border-radius:4px;background:var(--brass)}
+
 /* reveal */
 .js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
 .js .rv.in{opacity:1;transform:none}
@@ -439,6 +454,8 @@ body{font-feature-settings:"kern","liga","calt"}
   .press-quote p{font-size:21px}
   .film-cap{flex-direction:column;gap:4px}
   .hero-press{margin-top:20px}
+  .quotes-sec{padding:80px var(--gutter)}
+  .quotes-text{font-size:24px;min-height:160px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -556,6 +573,19 @@ body{font-feature-settings:"kern","liga","calt"}
     <button class="film-play" id="filmPlay" type="button" aria-label="Play the Blanck Capital film"><svg viewBox="0 0 30 34" aria-hidden="true"><path d="M0 0l30 17L0 34z"/></svg></button>
   </div>
   <div class="film-cap"><span>Blanck Capital · The film, 2026</span><span>0:30 · No audio</span></div>
+</section>
+
+<section class="sec quotes-sec" id="quotes" aria-label="Quotes">
+  <div class="quotes-wrap rv">
+    <span class="eyebrow">Words to invest by</span>
+    <div class="quotes-text" id="qText" aria-live="polite"></div>
+    <div class="quotes-attr" id="qAttr"></div>
+    <div class="quotes-ctrls">
+      <button class="q-arrow" id="qPrev" type="button" aria-label="Previous quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+      <div class="q-dots" id="qDots" role="tablist" aria-label="Select quote"></div>
+      <button class="q-arrow" id="qNext" type="button" aria-label="Next quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>
+    </div>
+  </div>
 </section>
 
 <section class="sec bone" id="approach">
@@ -809,6 +839,52 @@ body{font-feature-settings:"kern","liga","calt"}
     history.replaceState(null, '', '#film');
     playFilm();
   });
+
+  // quotes slider
+  var QS = [
+    { t: "“The stock market is a device for transferring money from the impatient to the patient.”", a: "Warren Buffett" },
+    { t: "“It’s not supposed to be easy. Anyone who finds it easy is stupid.”", a: "Charlie Munger" },
+    { t: "“Risk comes from not knowing what you’re doing.”", a: "Warren Buffett" },
+    { t: "“Invert, always invert. Turn a situation or problem upside down. Look at it backward.”", a: "Charlie Munger" },
+    { t: "“Our favorite holding period is forever.”", a: "Warren Buffett" },
+    { t: "“Show me the incentive and I’ll show you the outcome.”", a: "Charlie Munger" },
+    { t: "“The most important quality for an investor is temperament, not intellect.”", a: "Warren Buffett" },
+    { t: "“It is remarkable how much long-term advantage people like us have gotten by trying to be consistently not stupid, instead of trying to be very intelligent.”", a: "Charlie Munger" }
+  ];
+  var qi = 0, qTimer = null, qEl = document.getElementById('qText'), qAt = document.getElementById('qAttr'), qDots = document.getElementById('qDots');
+  if (qEl && qAt && qDots) {
+    function buildQDots(){
+      qDots.innerHTML = '';
+      QS.forEach(function(_, i){
+        var b = document.createElement('button');
+        b.className = 'q-dot' + (i === qi ? ' on' : '');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Quote ' + (i + 1) + ' of ' + QS.length);
+        b.addEventListener('click', function(){ setQ(i, true); });
+        qDots.appendChild(b);
+      });
+    }
+    function setQ(n, manual){
+      qi = (n + QS.length) % QS.length;
+      qEl.classList.remove('show');
+      setTimeout(function(){
+        qEl.textContent = QS[qi].t;
+        qAt.textContent = '— ' + QS[qi].a;
+        qEl.classList.add('show');
+      }, 250);
+      buildQDots();
+      if (manual) resetQTimer();
+    }
+    function resetQTimer(){
+      if (qTimer) clearInterval(qTimer);
+      if (!reduce) qTimer = setInterval(function(){ setQ(qi + 1, false); }, 7500);
+    }
+    var qPrev = document.getElementById('qPrev'), qNext = document.getElementById('qNext');
+    if (qPrev) qPrev.addEventListener('click', function(){ setQ(qi - 1, true); });
+    if (qNext) qNext.addEventListener('click', function(){ setQ(qi + 1, true); });
+    setQ(0, false);
+    resetQTimer();
+  }
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 
