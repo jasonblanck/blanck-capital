@@ -238,8 +238,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
 .hero-content{pointer-events:none}
 .hero-content a,.hero-content button{pointer-events:auto}
-.hero-globe{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.hero-globe{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+@media (min-width:641px){.hero-globe{pointer-events:auto;touch-action:none}}
 .globe-hint{position:absolute;z-index:2;transform:translateX(-50%);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--bone-dim);pointer-events:none;transition:opacity .8s}
+@media (max-width:640px){.globe-hint{display:none}}
 .globe-hint.gone{opacity:0}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,8,11,.92) 0%,rgba(7,8,11,.55) 45%,rgba(7,8,11,0) 70%);pointer-events:none}
 .hero-content{position:absolute;z-index:2;left:var(--gutter);top:200px;max-width:760px}
@@ -255,8 +257,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .btn-ghost:hover{border-color:var(--bone)}
 .btn-ghost svg{width:12px;height:14px}
 .eb-short{display:none}
-.motion-btn{position:absolute;z-index:3;right:var(--gutter);bottom:40px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(237,234,227,.35);display:flex;align-items:center;justify-content:center}
-.motion-btn svg{width:14px;height:14px;fill:var(--bone)}
 
 /* philosophy */
 .philo{display:grid;grid-template-columns:1fr 1fr;gap:96px}
@@ -428,7 +428,6 @@ body{font-feature-settings:"kern","liga","calt"}
   .hero-lede{margin-top:24px;font-size:17px}
   .hero-btns{flex-direction:column;margin-top:28px}
   .hero-btns a{width:100%;justify-content:center}
-  .motion-btn{top:80px;bottom:auto;right:var(--gutter)}
   .philo h2{font-size:40px}
   .principles{grid-template-columns:1fr;gap:22px}
   .port-head .l1,.port-head .l2{font-size:52px}
@@ -516,9 +515,6 @@ body{font-feature-settings:"kern","liga","calt"}
     </div>
     <a class="hero-press" href="#press"><span>As featured in</span> <b>CNBC</b> <span aria-hidden="true">→</span></a>
   </div>
-  <button class="motion-btn" id="motionBtn" type="button" aria-label="Pause background motion">
-    <svg viewBox="0 0 14 14" aria-hidden="true" id="motionIcon"><rect x="2" y="1" width="3.5" height="12"/><rect x="8.5" y="1" width="3.5" height="12"/></svg>
-  </button>
 </section>
 
 <section class="sec bone" id="philosophy">
@@ -684,31 +680,12 @@ body{font-feature-settings:"kern","liga","calt"}
   menu.querySelectorAll('ul a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false, false); }); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false, true); });
 
-  // hero: live interactive globe on desktop, looping video elsewhere
-  var hv = document.getElementById('heroVideo'), mb = document.getElementById('motionBtn'), mi = document.getElementById('motionIcon');
-  var PAUSE = '<rect x="2" y="1" width="3.5" height="12"/><rect x="8.5" y="1" width="3.5" height="12"/>';
-  var PLAY = '<path d="M3 1l10 6-10 6z"/>';
-  var stored = null;
-  try { stored = localStorage.getItem('bc-hero-motion'); } catch (e) {}
+  // hero: live globe animation
+  var hv = document.getElementById('heroVideo');
   var globe = null;
-  if (!reduce && window.matchMedia('(min-width: 641px) and (pointer: fine)').matches) {
+  if (!reduce) {
     globe = initGlobe(document.getElementById('heroGlobe'), document.getElementById('globeHint'));
-    if (globe) { if (hv) hv.remove(); if (mb) mb.remove(); }
-  }
-  var motionOn = false;
-  function setMotion(on, save){
-    motionOn = on;
-    if (globe) { globe.setAuto(on); }
-    else {
-      if (on) { var p = hv.play(); if (p && p.catch) p.catch(function(){}); } else if (hv) { hv.pause(); }
-      if (mi) mi.innerHTML = on ? PAUSE : PLAY;
-      if (mb) mb.setAttribute('aria-label', on ? 'Pause background motion' : 'Play background motion');
-      if (save) { try { localStorage.setItem('bc-hero-motion', on ? 'on' : 'off'); } catch (e) {} }
-    }
-  }
-  if (!globe && mb) {
-    setMotion(stored ? stored === 'on' : !reduce, false);
-    mb.addEventListener('click', function(){ setMotion(!motionOn, true); });
+    if (globe && hv) hv.remove();
   }
 
   function initGlobe(cv, hint){
@@ -734,7 +711,15 @@ body{font-feature-settings:"kern","liga","calt"}
       W = b.width; H = b.height;
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      cx = W * (W < 1100 ? 0.8 : 0.74); cy = H * 0.52; R = Math.min(H * 0.36, W * (W < 1100 ? 0.3 : 0.23));
+      if (W <= 640) {
+        cx = W * 0.5;
+        cy = Math.min(180, H * 0.28);
+        R = Math.min(145, W * 0.36);
+      } else {
+        cx = W * (W < 1100 ? 0.8 : 0.74);
+        cy = H * 0.52;
+        R = Math.min(H * 0.36, W * (W < 1100 ? 0.3 : 0.23));
+      }
       hint.style.left = cx + 'px'; hint.style.top = (cy + R + 28) + 'px';
     }
     size();
@@ -747,7 +732,7 @@ body{font-feature-settings:"kern","liga","calt"}
     function dismissHint(){ hint.classList.add('gone'); }
 
     cv.addEventListener('pointerdown', function(e){
-      if (!overGlobe(e.offsetX, e.offsetY)) return;
+      if (W <= 640 || !overGlobe(e.offsetX, e.offsetY)) return;
       dragging = true; lastX = e.clientX; lastY = e.clientY; vYaw = vPitch = 0;
       cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; dismissHint();
     });
