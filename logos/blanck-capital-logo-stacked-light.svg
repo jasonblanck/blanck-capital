@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&amp;family=Bodoni+Moda:ital,wght@1,400&amp;display=swap');
+    .text-blanck { font-family: 'Archivo', sans-serif; font-weight: 900; font-variation-settings: 'wdth' 125; font-size: 96px; fill: #07080B; letter-spacing: -0.01em; text-anchor: middle; }
+    .text-capital { font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 400; font-size: 110px; fill: #6E5626; text-anchor: middle; }
+  </style>
+  <g transform="translate(240, 100)">
+    <circle cx="160" cy="160" r="140" stroke="#6E5626" stroke-width="24" fill="none"/>
+    <path d="M112 80 H170 C205 80 205 118 170 118 H112 M112 118 H182 C217 118 217 160 182 160 H112" stroke="#07080B" stroke-width="24" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="112" y1="80" x2="112" y2="240" stroke="#07080B" stroke-width="24" stroke-linecap="round"/>
+  </g>
+  <text x="400" y="540" class="text-blanck">BLANCK</text>
+  <text x="400" y="660" class="text-capital">Capital</text>
+</svg>

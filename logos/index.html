@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blanck Capital | Brand Assets & Logo Suite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Bodoni+Moda:ital,wght@1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --ink: #07080B;
+  --bone: #EDEAE3;
+  --bone-dim: #8E8C86;
+  --brass: #C8A96B;
+  --brass-deep: #6E5626;
+  --font-sans: "Archivo", sans-serif;
+  --font-serif: "Bodoni Moda", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  padding: 40px 24px 80px;
+  line-height: 1.5;
+}
+header {
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  border-bottom: 1px solid rgba(237, 234, 227, 0.15);
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.brand-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--brass);
+}
+h1 {
+  margin: 8px 0 0;
+  font-size: 36px;
+  font-weight: 400;
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+.home-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--bone-dim);
+  text-decoration: none;
+  border: 1px solid rgba(237, 234, 227, 0.25);
+  padding: 10px 18px;
+  transition: color .2s, border-color .2s;
+}
+.home-link:hover { color: var(--brass); border-color: var(--brass); }
+
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  border: 1px solid rgba(237, 234, 227, 0.15);
+  border-radius: 4px;
+  background: #0E1015;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card-preview {
+  padding: 48px 32px;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.card-preview.dark-bg { background: #07080B; }
+.card-preview.light-bg { background: #EDEAE3; }
+.card-preview.checkered-bg {
+  background-color: #12141a;
+  background-image: linear-gradient(45deg, #1a1d26 25%, transparent 25%), linear-gradient(-45deg, #1a1d26 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #1a1d26 75%), linear-gradient(-45deg, transparent 75%, #1a1d26 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+.card-preview img, .card-preview svg {
+  max-width: 100%;
+  height: auto;
+  max-height: 180px;
+}
+
+.card-info {
+  padding: 24px;
+  border-top: 1px solid rgba(237, 234, 227, 0.1);
+  background: #07080B;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--bone);
+  margin-bottom: 6px;
+}
+.card-desc {
+  font-size: 13px;
+  color: var(--bone-dim);
+  margin-bottom: 20px;
+  line-height: 1.45;
+}
+.card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  padding: 10px 14px;
+  border: 1px solid rgba(237, 234, 227, 0.3);
+  color: var(--bone);
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  transition: background .2s, border-color .2s, color .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn:hover { border-color: var(--brass); color: var(--brass); background: rgba(200, 169, 107, 0.08); }
+.btn-primary { background: var(--bone); color: var(--ink); border-color: var(--bone); font-weight: 600; }
+.btn-primary:hover { background: #FFFFFF; color: var(--ink); border-color: #FFFFFF; }
+
+.specs-section {
+  max-width: 1200px;
+  margin: 64px auto 0;
+  border-top: 1px solid rgba(237, 234, 227, 0.15);
+  padding-top: 48px;
+}
+.colors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.color-box {
+  padding: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(237, 234, 227, 0.15);
+}
+.swatch {
+  height: 48px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.c-name { font-family: var(--font-sans); font-weight: 700; font-size: 14px; }
+.c-hex { font-family: var(--font-mono); font-size: 12px; color: var(--bone-dim); margin-top: 4px; }
+
+canvas { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <span class="brand-title">Blanck Capital · Brand Suite</span>
+    <h1>Official Logos &amp; Vector Assets</h1>
+  </div>
+  <a class="home-link" href="/">← Back to main site</a>
+</header>
+
+<main class="grid">
+
+  <div class="card">
+    <div class="card-preview dark-bg">
+      <img id="img-icon-gold" src="blanck-capital-icon-gold.svg" alt="Gold Monogram Icon">
+    </div>
+    <div class="card-info">
+      <div>
+        <div class="card-title">Gold Monogram Icon</div>
+        <div class="card-desc">Brass ring (#C8A96B) with bone white "B" monogram. Perfect for avatars, app icons, favicons, watch faces, and embroidered merch patches.</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="blanck-capital-icon-gold.svg" download>Download SVG</a>
+        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-icon-gold.svg', 2000, 2000, 'blanck-capital-icon-gold.png')">PNG (2000px)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview light-bg">
+      <img id="img-icon-dark" src="blanck-capital-icon-dark.svg" alt="Dark Monogram Icon">
+    </div>
+    <div class="card-info">
+      <div>
+        <div class="card-title">Dark Monogram Icon</div>
+        <div class="card-desc">Deep brass &amp; ink black monogram for white or light backgrounds and monochrome printing.</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="blanck-capital-icon-dark.svg" download>Download SVG</a>
+        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-icon-dark.svg', 2000, 2000, 'blanck-capital-icon-dark.png')">PNG (2000px)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview dark-bg">
+      <img src="blanck-capital-logo-horizontal-dark.svg" alt="Horizontal Dark Logo">
+    </div>
+    <div class="card-info">
+      <div>
+        <div class="card-title">Horizontal Logo (Dark Background)</div>
+        <div class="card-desc">Primary horizontal brandmark with bone &amp; brass typography. Ideal for website headers, dark decks, video overlays, and dark merch.</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="blanck-capital-logo-horizontal-dark.svg" download>Download SVG</a>
+        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-logo-horizontal-dark.svg', 3200, 854, 'blanck-capital-logo-horizontal-dark.png')">PNG (3200px)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview light-bg">
+      <img src="blanck-capital-logo-horizontal-light.svg" alt="Horizontal Light Logo">
+    </div>
+    <div class="card-info">
+      <div>
+        <div class="card-title">Horizontal Logo (Light Background)</div>
+        <div class="card-desc">Primary horizontal brandmark with ink black &amp; deep brass text. Ideal for white documents, letterheads, business cards, and light merch.</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="blanck-capital-logo-horizontal-light.svg" download>Download SVG</a>
+        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-logo-horizontal-light.svg', 3200, 854, 'blanck-capital-logo-horizontal-light.png')">PNG (3200px)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview dark-bg">
+      <img src="blanck-capital-logo-stacked-dark.svg" alt="Stacked Dark Logo">
+    </div>
+    <div class="card-info">
+      <div>
+        <div class="card-title">Stacked Logo (Dark Background)</div>
+        <div class="card-desc">Centered vertical brandmark. Ideal for t-shirt/hoodie center chest prints, tote bags, caps, square cards, and banners.</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="blanck-capital-logo-stacked-dark.svg" download>Download SVG</a>
+        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-logo-stacked-dark.svg', 2400, 2400, 'blanck-capital-logo-stacked-dark.png')">PNG (2400px)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview light-bg">
+      <img src="blanck-capital-logo-stacked-light.svg" alt="Stacked Light Logo">
+    </div>
+    <div class="card-info">
+      <div>
+        <div class="card-title">Stacked Logo (Light Background)</div>
+        <div class="card-desc">Centered vertical brandmark for light apparel, print collateral, and white background merchandise.</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="blanck-capital-logo-stacked-light.svg" download>Download SVG</a>
+        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-logo-stacked-light.svg', 2400, 2400, 'blanck-capital-logo-stacked-light.png')">PNG (2400px)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview checkered-bg">
+      <img src="blanck-capital-monochrome-black.svg" alt="Monochrome Black Logo">
+    </div>
+    <div class="card-info">
+      <div>
+        <div class="card-title">Monochrome Solid Black</div>
+        <div class="card-desc">100% Solid Black (#000000). Essential for single-color screen printing, laser etching/engraving, embossing, and rubber stamps.</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="blanck-capital-monochrome-black.svg" download>Download SVG</a>
+        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-monochrome-black.svg', 3200, 854, 'blanck-capital-monochrome-black.png')">PNG (3200px)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview checkered-bg">
+      <img src="blanck-capital-monochrome-white.svg" alt="Monochrome White Logo">
+    </div>
+    <div class="card-info">
+      <div>
+        <div class="card-title">Monochrome Solid White</div>
+        <div class="card-desc">100% Solid White (#FFFFFF). Essential for single-color dark apparel screen printing, vinyl transfers, and foil stamping.</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="blanck-capital-monochrome-white.svg" download>Download SVG</a>
+        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-monochrome-white.svg', 3200, 854, 'blanck-capital-monochrome-white.png')">PNG (3200px)</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<section class="specs-section">
+  <span class="brand-title">Brand Specs</span>
+  <h2 style="font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 28px; margin: 8px 0 0;">Official Brand Colors</h2>
+  
+  <div class="colors-grid">
+    <div class="color-box">
+      <div class="swatch" style="background: #07080B;"></div>
+      <div class="c-name">Ink (Dark)</div>
+      <div class="c-hex">#07080B</div>
+    </div>
+    <div class="color-box">
+      <div class="swatch" style="background: #EDEAE3;"></div>
+      <div class="c-name" style="color: #EDEAE3;">Bone (Light)</div>
+      <div class="c-hex">#EDEAE3</div>
+    </div>
+    <div class="color-box">
+      <div class="swatch" style="background: #C8A96B;"></div>
+      <div class="c-name">Brass (Gold Accent)</div>
+      <div class="c-hex">#C8A96B</div>
+    </div>
+    <div class="color-box">
+      <div class="swatch" style="background: #6E5626;"></div>
+      <div class="c-name">Brass Deep</div>
+      <div class="c-hex">#6E5626</div>
+    </div>
+  </div>
+</section>
+
+<canvas id="exportCanvas"></canvas>
+
+<script>
+function exportPNG(svgUrl, targetW, targetH, filename) {
+  fetch(svgUrl)
+    .then(r => r.text())
+    .then(svgText => {
+      const blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const img = new Image();
+      img.onload = function() {
+        const cv = document.getElementById('exportCanvas');
+        cv.width = targetW;
+        cv.height = targetH;
+        const ctx = cv.getContext('2d');
+        ctx.clearRect(0, 0, targetW, targetH);
+        ctx.drawImage(img, 0, 0, targetW, targetH);
+        URL.revokeObjectURL(url);
+        
+        cv.toBlob(function(pngBlob) {
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(pngBlob);
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, 'image/png');
+      };
+      img.src = url;
+    })
+    .catch(err => alert('Export failed: ' + err));
+}
+</script>
+
+</body>
+</html>
