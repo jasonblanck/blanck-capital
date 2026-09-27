@@ -372,7 +372,7 @@ body{font-feature-settings:"kern","liga","calt"}
 .q-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(237,234,227,.25);color:var(--bone-muted);display:flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s}
 .q-arrow:hover,.q-arrow:focus-visible{color:var(--brass);border-color:var(--brass)}
 .q-arrow svg{width:14px;height:14px;fill:currentColor}
-.q-dots{display:flex;align-items:center;gap:10px}
+.q-dots{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px}
 .q-dot{width:8px;height:8px;border-radius:50%;background:rgba(237,234,227,.25);border:0;cursor:pointer;padding:16px 0;box-sizing:content-box;background-clip:content-box;transition:background .3s,width .3s}
 .q-dot:hover,.q-dot:focus-visible{background:var(--bone)}
 .q-dot.on{width:24px;border-radius:4px;background:var(--brass)}
@@ -833,20 +833,50 @@ body{font-feature-settings:"kern","liga","calt"}
     { t: "“Our favorite holding period is forever.”", a: "Warren Buffett" },
     { t: "“Show me the incentive and I’ll show you the outcome.”", a: "Charlie Munger" },
     { t: "“The most important quality for an investor is temperament, not intellect.”", a: "Warren Buffett" },
-    { t: "“It is remarkable how much long-term advantage people like us have gotten by trying to be consistently not stupid, instead of trying to be very intelligent.”", a: "Charlie Munger" }
+    { t: "“It is remarkable how much long-term advantage people like us have gotten by trying to be consistently not stupid, instead of trying to be very intelligent.”", a: "Charlie Munger" },
+    { t: "“Put all your eggs in one basket and then watch that basket very carefully.”", a: "Stanley Druckenmiller" },
+    { t: "“It’s not whether you’re right or wrong that’s important, but how much money you make when you’re right and how much you lose when you’re wrong.”", a: "Stanley Druckenmiller" },
+    { t: "“The way to build long-term returns is through preservation of capital and home runs.”", a: "Stanley Druckenmiller" },
+    { t: "“Never, ever invest in the present. You have to visualize the situation 18 months from now.”", a: "Stanley Druckenmiller" },
+    { t: "“If you’re extremely confident, take a big position. Don’t do things half-heartedly.”", a: "Stanley Druckenmiller" },
+    { t: "“Price is what you pay. Value is what you get.”", a: "Warren Buffett" },
+    { t: "“It’s far better to buy a wonderful company at a fair price than a fair company at a wonderful price.”", a: "Warren Buffett" },
+    { t: "“Be fearful when others are greedy and greedy when others are fearful.”", a: "Warren Buffett" },
+    { t: "“Someone’s sitting in the shade today because someone planted a tree a long time ago.”", a: "Warren Buffett" },
+    { t: "“Rule No. 1: Never lose money. Rule No. 2: Never forget rule No. 1.”", a: "Warren Buffett" },
+    { t: "“The big money is not in the buying and the selling, but in the waiting.”", a: "Charlie Munger" },
+    { t: "“Spend each day trying to be a little wiser than you were when you woke up.”", a: "Charlie Munger" },
+    { t: "“Knowing what you don’t know is more useful than being brilliant.”", a: "Charlie Munger" },
+    { t: "“Acquire worldly wisdom and adjust your behavior accordingly.”", a: "Charlie Munger" },
+    { t: "“The best thing a human being can do is to help another human being know more.”", a: "Charlie Munger" }
   ];
+
+  for (var i = QS.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = QS[i]; QS[i] = QS[j]; QS[j] = temp;
+  }
   var qi = 0, qTimer = null, qEl = document.getElementById('qText'), qAt = document.getElementById('qAttr'), qDots = document.getElementById('qDots');
   if (qEl && qAt && qDots) {
     function buildQDots(){
       qDots.innerHTML = '';
-      QS.forEach(function(_, i){
-        var b = document.createElement('button');
-        b.className = 'q-dot' + (i === qi ? ' on' : '');
-        b.type = 'button';
-        b.setAttribute('aria-label', 'Quote ' + (i + 1) + ' of ' + QS.length);
-        b.addEventListener('click', function(){ setQ(i, true); });
-        qDots.appendChild(b);
-      });
+      var total = QS.length, maxDots = 7;
+      var start = 0;
+      if (total > maxDots) {
+        start = qi - Math.floor(maxDots / 2);
+        if (start < 0) start = 0;
+        if (start + maxDots > total) start = total - maxDots;
+      }
+      var count = Math.min(maxDots, total);
+      for (var idx = 0; idx < count; idx++) {
+        (function(i){
+          var b = document.createElement('button');
+          b.className = 'q-dot' + (i === qi ? ' on' : '');
+          b.type = 'button';
+          b.setAttribute('aria-label', 'Quote ' + (i + 1) + ' of ' + total);
+          b.addEventListener('click', function(){ setQ(i, true); });
+          qDots.appendChild(b);
+        })(start + idx);
+      }
     }
     function setQ(n, manual){
       qi = (n + QS.length) % QS.length;
