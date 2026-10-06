@@ -243,6 +243,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .globe-hint{position:absolute;z-index:2;transform:translateX(-50%);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--bone-dim);pointer-events:none;transition:opacity .8s}
 @media (max-width:640px){.globe-hint{display:none}}
 .globe-hint.gone{opacity:0}
+.constellation-tooltip{position:absolute;z-index:10;pointer-events:none;opacity:0;transform:translate(-50%,-100%) scale(.92);transform-origin:bottom center;transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1);background:rgba(14,16,21,.92);border:1px solid rgba(200,169,107,.4);padding:10px 14px;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 15px rgba(200,169,107,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);white-space:nowrap}
+.constellation-tooltip.visible{opacity:1;transform:translate(-50%,-100%) scale(1)}
+.ct-title{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:2px}
+.ct-sub{font-family:var(--font-sans);font-size:13px;color:var(--bone-muted);font-weight:400;letter-spacing:.01em}
+.theme{transition:background-color .5s ease,outline .5s ease}
+.theme.theme-highlight{background-color:rgba(200,169,107,.08);outline:1px solid var(--brass)}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,8,11,.92) 0%,rgba(7,8,11,.55) 45%,rgba(7,8,11,0) 70%);pointer-events:none}
 .hero-content{position:absolute;z-index:2;left:var(--gutter);top:200px;max-width:760px}
 .hero h1{margin-top:22px;font-weight:400}
@@ -500,6 +506,10 @@ body{font-feature-settings:"kern","liga","calt"}
   </video>
   <canvas class="hero-globe" id="heroGlobe" aria-hidden="true" hidden></canvas>
   <span class="globe-hint" id="globeHint" aria-hidden="true" hidden>Drag to rotate</span>
+  <div class="constellation-tooltip" id="constellationTooltip" aria-hidden="true">
+    <div class="ct-title" id="ctTitle"></div>
+    <div class="ct-sub" id="ctSub"></div>
+  </div>
   <div class="hero-content">
     <span class="eyebrow">Private family office · New York · Est. 2024</span>
     <h1>
@@ -543,15 +553,15 @@ body{font-feature-settings:"kern","liga","calt"}
     <p>Private markets, public equities and transformative technology, grouped by the themes we underwrite.</p>
   </div>
   <div class="themes">
-    <div class="theme rv"><span class="eyebrow">AI &amp; compute<span class="count">07</span></span><ul><li><a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Anthropic</a></li><li><a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">Perplexity</a></li><li><a href="https://www.figure.ai/" target="_blank" rel="noopener noreferrer">Figure AI</a></li><li><a href="https://neuralink.com/" target="_blank" rel="noopener noreferrer">Neuralink</a></li><li><a href="https://neuralmachine.com/" target="_blank" rel="noopener noreferrer">Neural Machines</a></li><li><a href="https://www.sagelabs.ai/" target="_blank" rel="noopener noreferrer">Sage AI</a></li><li><a href="https://www.appliedelectrodynamics.com/" target="_blank" rel="noopener noreferrer">Applied Electrodynamics</a></li></ul></div>
-    <div class="theme rv"><span class="eyebrow">Defense<span class="count">04</span></span><ul><li><a href="https://shield.ai/" target="_blank" rel="noopener noreferrer">Shield AI</a></li><li><a href="https://www.hermeus.com/" target="_blank" rel="noopener noreferrer">Hermeus</a></li><li><a href="https://launchfirestorm.com/" target="_blank" rel="noopener noreferrer">Firestorm</a></li><li><a href="https://www.soctera.com/" target="_blank" rel="noopener noreferrer">Soctera</a></li></ul></div>
-    <div class="theme rv"><span class="eyebrow">Space<span class="count">03</span></span><ul><li><a href="https://starlab-space.com/" target="_blank" rel="noopener noreferrer">Starlab Space</a></li><li><a href="https://www.longshotspace.com/" target="_blank" rel="noopener noreferrer">Longshot Space</a></li><li><a href="https://voyagertechnologies.com/" target="_blank" rel="noopener noreferrer">Voyager</a></li></ul></div>
-    <div class="theme rv"><span class="eyebrow">Quantum<span class="count">02</span></span><ul><li><a href="https://www.sandboxaq.com/" target="_blank" rel="noopener noreferrer">SandboxAQ</a></li><li><a href="https://www.quantinuum.com/" target="_blank" rel="noopener noreferrer">Quantinuum</a></li></ul></div>
-    <div class="theme rv"><span class="eyebrow">Markets<span class="count">04</span></span><ul><li><a href="https://polymarket.com/" target="_blank" rel="noopener noreferrer">Polymarket</a></li><li><a href="https://kalshi.com/" target="_blank" rel="noopener noreferrer">Kalshi</a></li><li><a href="https://ripple.com/" target="_blank" rel="noopener noreferrer">Ripple</a></li><li><a href="https://www.joinautopilot.com/landing" target="_blank" rel="noopener noreferrer">Autopilot</a></li></ul></div>
-    <div class="theme rv"><span class="eyebrow">Health<span class="count">03</span></span><ul><li><a href="https://superpower.com/" target="_blank" rel="noopener noreferrer">Superpower</a></li><li><a href="https://www.intactis.bio/" target="_blank" rel="noopener noreferrer">Intactis Bio</a></li><li><a href="https://www.amuletscientific.com/" target="_blank" rel="noopener noreferrer">Amulet Scientific</a></li></ul></div>
-    <div class="theme rv"><span class="eyebrow">Food &amp; beverage<span class="count">07</span></span><ul><li><a href="https://liquiddeath.com/" target="_blank" rel="noopener noreferrer">Liquid Death</a></li><li><a href="https://cobfoods.com/" target="_blank" rel="noopener noreferrer">Cob</a></li><li><a href="https://eatdrumroll.com/" target="_blank" rel="noopener noreferrer">Drumroll</a></li><li><a href="https://drinkghia.com/" target="_blank" rel="noopener noreferrer">Ghia</a></li><li><a href="https://springandmulberry.com/" target="_blank" rel="noopener noreferrer">Spring &amp; Mulberry</a></li><li><a href="https://www.btrnation.com/" target="_blank" rel="noopener noreferrer">BTR Nation</a></li><li><a href="https://ancientcrunch.com/" target="_blank" rel="noopener noreferrer">Ancient Crunch</a></li></ul></div>
-    <div class="theme rv"><span class="eyebrow">Lifestyle<span class="count">02</span></span><ul><li><a href="https://repurpose.com/" target="_blank" rel="noopener noreferrer">Repurpose</a></li><li><a href="https://www.newyorkatlantics.com/" target="_blank" rel="noopener noreferrer">New York Atlantics</a></li></ul></div>
-    <div class="theme rv"><span class="eyebrow">Real estate<span class="count">04</span></span><ul><li><a href="https://l3campus.com/" target="_blank" rel="noopener noreferrer">L3 Campus</a></li><li><a href="https://collegehouse.com/" target="_blank" rel="noopener noreferrer">College House</a></li><li><a href="https://statehousecolumbus.com/" target="_blank" rel="noopener noreferrer">StateHouse</a></li><li><a href="https://rentmiramar.com/" target="_blank" rel="noopener noreferrer">Miramar</a></li></ul></div>
+    <div class="theme rv" id="theme-ai"><span class="eyebrow">AI &amp; compute<span class="count">07</span></span><ul><li><a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Anthropic</a></li><li><a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">Perplexity</a></li><li><a href="https://www.figure.ai/" target="_blank" rel="noopener noreferrer">Figure AI</a></li><li><a href="https://neuralink.com/" target="_blank" rel="noopener noreferrer">Neuralink</a></li><li><a href="https://neuralmachine.com/" target="_blank" rel="noopener noreferrer">Neural Machines</a></li><li><a href="https://www.sagelabs.ai/" target="_blank" rel="noopener noreferrer">Sage AI</a></li><li><a href="https://www.appliedelectrodynamics.com/" target="_blank" rel="noopener noreferrer">Applied Electrodynamics</a></li></ul></div>
+    <div class="theme rv" id="theme-defense"><span class="eyebrow">Defense<span class="count">04</span></span><ul><li><a href="https://shield.ai/" target="_blank" rel="noopener noreferrer">Shield AI</a></li><li><a href="https://www.hermeus.com/" target="_blank" rel="noopener noreferrer">Hermeus</a></li><li><a href="https://launchfirestorm.com/" target="_blank" rel="noopener noreferrer">Firestorm</a></li><li><a href="https://www.soctera.com/" target="_blank" rel="noopener noreferrer">Soctera</a></li></ul></div>
+    <div class="theme rv" id="theme-space"><span class="eyebrow">Space<span class="count">03</span></span><ul><li><a href="https://starlab-space.com/" target="_blank" rel="noopener noreferrer">Starlab Space</a></li><li><a href="https://www.longshotspace.com/" target="_blank" rel="noopener noreferrer">Longshot Space</a></li><li><a href="https://voyagertechnologies.com/" target="_blank" rel="noopener noreferrer">Voyager</a></li></ul></div>
+    <div class="theme rv" id="theme-quantum"><span class="eyebrow">Quantum<span class="count">02</span></span><ul><li><a href="https://www.sandboxaq.com/" target="_blank" rel="noopener noreferrer">SandboxAQ</a></li><li><a href="https://www.quantinuum.com/" target="_blank" rel="noopener noreferrer">Quantinuum</a></li></ul></div>
+    <div class="theme rv" id="theme-markets"><span class="eyebrow">Markets<span class="count">04</span></span><ul><li><a href="https://polymarket.com/" target="_blank" rel="noopener noreferrer">Polymarket</a></li><li><a href="https://kalshi.com/" target="_blank" rel="noopener noreferrer">Kalshi</a></li><li><a href="https://ripple.com/" target="_blank" rel="noopener noreferrer">Ripple</a></li><li><a href="https://www.joinautopilot.com/landing" target="_blank" rel="noopener noreferrer">Autopilot</a></li></ul></div>
+    <div class="theme rv" id="theme-health"><span class="eyebrow">Health<span class="count">03</span></span><ul><li><a href="https://superpower.com/" target="_blank" rel="noopener noreferrer">Superpower</a></li><li><a href="https://www.intactis.bio/" target="_blank" rel="noopener noreferrer">Intactis Bio</a></li><li><a href="https://www.amuletscientific.com/" target="_blank" rel="noopener noreferrer">Amulet Scientific</a></li></ul></div>
+    <div class="theme rv" id="theme-food"><span class="eyebrow">Food &amp; beverage<span class="count">07</span></span><ul><li><a href="https://liquiddeath.com/" target="_blank" rel="noopener noreferrer">Liquid Death</a></li><li><a href="https://cobfoods.com/" target="_blank" rel="noopener noreferrer">Cob</a></li><li><a href="https://eatdrumroll.com/" target="_blank" rel="noopener noreferrer">Drumroll</a></li><li><a href="https://drinkghia.com/" target="_blank" rel="noopener noreferrer">Ghia</a></li><li><a href="https://springandmulberry.com/" target="_blank" rel="noopener noreferrer">Spring &amp; Mulberry</a></li><li><a href="https://www.btrnation.com/" target="_blank" rel="noopener noreferrer">BTR Nation</a></li><li><a href="https://ancientcrunch.com/" target="_blank" rel="noopener noreferrer">Ancient Crunch</a></li></ul></div>
+    <div class="theme rv" id="theme-lifestyle"><span class="eyebrow">Lifestyle<span class="count">02</span></span><ul><li><a href="https://repurpose.com/" target="_blank" rel="noopener noreferrer">Repurpose</a></li><li><a href="https://www.newyorkatlantics.com/" target="_blank" rel="noopener noreferrer">New York Atlantics</a></li></ul></div>
+    <div class="theme rv" id="theme-realestate"><span class="eyebrow">Real estate<span class="count">04</span></span><ul><li><a href="https://l3campus.com/" target="_blank" rel="noopener noreferrer">L3 Campus</a></li><li><a href="https://collegehouse.com/" target="_blank" rel="noopener noreferrer">College House</a></li><li><a href="https://statehousecolumbus.com/" target="_blank" rel="noopener noreferrer">StateHouse</a></li><li><a href="https://rentmiramar.com/" target="_blank" rel="noopener noreferrer">Miramar</a></li></ul></div>
   </div>
   <p class="port-foot">Company names are listed for identification only and do not imply endorsement.</p>
 </section>
@@ -692,16 +702,41 @@ body{font-feature-settings:"kern","liga","calt"}
     if (!ctx) return null;
     cv.hidden = false; hint.hidden = false;
 
-    // Fibonacci sphere; ~7% of points brass, like the film
-    // (jittered so it reads as scattered particles rather than a grid)
-    var N = 2400, P = new Float32Array(N * 3), size0 = new Float32Array(N), brass = new Uint8Array(N), GA = Math.PI * (3 - Math.sqrt(5));
-    for (var i = 0; i < N; i++) {
-      var y = 1 - 2 * (i + 0.5) / N + (Math.random() - 0.5) * 0.012;
+    var tooltipEl = document.getElementById('constellationTooltip');
+    var ctTitle = document.getElementById('ctTitle');
+    var ctSub = document.getElementById('ctSub');
+
+    // 8 Primary Anchor Nodes representing core themes
+    var NODES = [
+      { title: "AI & COMPUTE", sub: "Anthropic · Perplexity · Figure AI", targetId: "theme-ai", x: 0.819, y: 0.574, z: 0.000 },
+      { title: "DEFENSE", sub: "Shield AI · Hermeus · Firestorm", targetId: "theme-defense", x: 0.321, y: -0.342, z: 0.883 },
+      { title: "SPACE", sub: "Starlab Space · Longshot Space · Voyager", targetId: "theme-space", x: -0.406, y: 0.819, z: 0.406 },
+      { title: "QUANTUM", sub: "SandboxAQ · Quantinuum", targetId: "theme-quantum", x: 0.500, y: -0.707, z: -0.500 },
+      { title: "PREDICTION MARKETS", sub: "Polymarket · Kalshi · Ripple", targetId: "theme-markets", x: -0.966, y: 0.259, z: 0.000 },
+      { title: "HEALTH & LONGEVITY", sub: "Superpower · Intactis Bio · Amulet Scientific", targetId: "theme-health", x: -0.683, y: -0.259, z: -0.683 },
+      { title: "FOOD & CPG", sub: "Liquid Death · Cob · Drumroll", targetId: "theme-food", x: 0.000, y: 0.866, z: -0.500 },
+      { title: "REAL ESTATE", sub: "L3 Campus · College House · StateHouse", targetId: "theme-realestate", x: -0.220, y: -0.766, z: 0.604 }
+    ];
+
+    // Connective lattice lines between thematic pairs
+    var EDGES = [
+      [0, 3], [1, 2], [4, 0], [2, 0], [1, 3], [5, 0], [5, 3],
+      [6, 5], [4, 1], [7, 4], [7, 6], [2, 4], [6, 2], [7, 1]
+    ];
+
+    // Ambient Star Dust: 750 subtle micro-sized particles
+    var N_DUST = 750, dustP = new Float32Array(N_DUST * 3), dustSize = new Float32Array(N_DUST), dustBrass = new Uint8Array(N_DUST), GA = Math.PI * (3 - Math.sqrt(5));
+    for (var i = 0; i < N_DUST; i++) {
+      var y = 1 - 2 * (i + 0.5) / N_DUST + (Math.random() - 0.5) * 0.02;
       y = Math.max(-1, Math.min(1, y));
-      var r = Math.sqrt(1 - y * y), th = GA * i + (Math.random() - 0.5) * 0.9;
-      P[i*3] = Math.cos(th) * r; P[i*3+1] = y; P[i*3+2] = Math.sin(th) * r;
-      size0[i] = 0.6 + Math.random() * 0.8;
-      brass[i] = Math.random() < 0.07 ? 1 : 0;
+      var r0 = Math.sqrt(1 - y * y);
+      var th = GA * i + (Math.random() - 0.5) * 0.4;
+      var rScale = 0.86 + Math.random() * 0.26;
+      dustP[i*3] = Math.cos(th) * r0 * rScale;
+      dustP[i*3+1] = y * rScale;
+      dustP[i*3+2] = Math.sin(th) * r0 * rScale;
+      dustSize[i] = 0.5 + Math.random() * 0.9;
+      dustBrass[i] = Math.random() < 0.07 ? 1 : 0;
     }
 
     var W, H, cx, cy, R;
@@ -726,14 +761,61 @@ body{font-feature-settings:"kern","liga","calt"}
 
     var BASE_PITCH = 0.35, yaw = 0, pitch = BASE_PITCH, vYaw = 0, vPitch = 0;
     var auto = true, dragging = false, lastX = 0, lastY = 0;
+    var clickStartX = 0, clickStartY = 0;
     var mx = -1e4, my = -1e4, sx = -1e4, sy = -1e4;
-    function overGlobe(x, y){ return Math.hypot(x - cx, y - cy) < R * 1.08; }
+    var hoveredNodeIndex = -1;
+
+    var nodeProj = new Array(NODES.length);
+    for (var k = 0; k < NODES.length; k++) nodeProj[k] = { px: 0, py: 0, z2: -1 };
+
+    function overGlobe(x, y){ return Math.hypot(x - cx, y - cy) < R * 1.15; }
     function dismissHint(){ hint.classList.add('gone'); }
+
+    function updateRaycast(){
+      if (dragging || mx < -1e3) {
+        if (hoveredNodeIndex !== -1) {
+          hoveredNodeIndex = -1;
+          if (tooltipEl) tooltipEl.classList.remove('visible');
+        }
+        return;
+      }
+      var bestIdx = -1, minDist = 26;
+      for (var k = 0; k < NODES.length; k++) {
+        var np = nodeProj[k];
+        if (np.z2 > -0.3) {
+          var d = Math.hypot(mx - np.px, my - np.py);
+          if (d < minDist) {
+            minDist = d;
+            bestIdx = k;
+          }
+        }
+      }
+      if (bestIdx !== hoveredNodeIndex) {
+        hoveredNodeIndex = bestIdx;
+        if (hoveredNodeIndex >= 0 && tooltipEl) {
+          var node = NODES[hoveredNodeIndex];
+          if (ctTitle) ctTitle.textContent = node.title;
+          if (ctSub) ctSub.textContent = node.sub;
+          tooltipEl.classList.add('visible');
+        } else if (tooltipEl) {
+          tooltipEl.classList.remove('visible');
+        }
+      }
+      if (hoveredNodeIndex >= 0 && tooltipEl) {
+        var np = nodeProj[hoveredNodeIndex];
+        var clampedX = Math.max(90, Math.min(W - 90, np.px));
+        tooltipEl.style.left = clampedX + 'px';
+        tooltipEl.style.top = (np.py - 16) + 'px';
+      }
+    }
 
     cv.addEventListener('pointerdown', function(e){
       if (!overGlobe(e.offsetX, e.offsetY)) return;
-      dragging = true; lastX = e.clientX; lastY = e.clientY; vYaw = vPitch = 0;
+      dragging = true; lastX = e.clientX; lastY = e.clientY;
+      clickStartX = e.clientX; clickStartY = e.clientY;
+      vYaw = vPitch = 0;
       cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; dismissHint();
+      if (tooltipEl) tooltipEl.classList.remove('visible');
     });
     cv.addEventListener('pointermove', function(e){
       mx = e.offsetX; my = e.offsetY;
@@ -742,18 +824,35 @@ body{font-feature-settings:"kern","liga","calt"}
         lastX = e.clientX; lastY = e.clientY;
         yaw += vYaw; pitch = Math.max(-1.2, Math.min(1.2, pitch + vPitch));
       } else {
-        cv.style.cursor = overGlobe(mx, my) ? 'grab' : '';
+        updateRaycast();
+        cv.style.cursor = hoveredNodeIndex >= 0 ? 'pointer' : (overGlobe(mx, my) ? 'grab' : '');
       }
     });
     function release(e){
       if (!dragging) return;
       dragging = false;
       if (e && e.pointerId && cv.releasePointerCapture) { try { cv.releasePointerCapture(e.pointerId); } catch(err){} }
-      cv.style.cursor = overGlobe(mx, my) ? 'grab' : '';
+      var dx = Math.abs(e.clientX - clickStartX), dy = Math.abs(e.clientY - clickStartY);
+      if (dx < 6 && dy < 6 && hoveredNodeIndex >= 0) {
+        var targetEl = document.getElementById(NODES[hoveredNodeIndex].targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+          history.replaceState(null, '', '#' + NODES[hoveredNodeIndex].targetId);
+          targetEl.classList.add('theme-highlight');
+          setTimeout(function(){ targetEl.classList.remove('theme-highlight'); }, 2200);
+        }
+      }
+      cv.style.cursor = hoveredNodeIndex >= 0 ? 'pointer' : (overGlobe(mx, my) ? 'grab' : '');
     }
     cv.addEventListener('pointerup', release);
     cv.addEventListener('pointercancel', release);
-    cv.addEventListener('pointerleave', function(){ if (!dragging) { mx = my = -1e4; } });
+    cv.addEventListener('pointerleave', function(){
+      if (!dragging) {
+        mx = my = -1e4;
+        hoveredNodeIndex = -1;
+        if (tooltipEl) tooltipEl.classList.remove('visible');
+      }
+    });
 
     var visible = true, raf = 0, last = 0, t0 = 0;
     function frame(t){
@@ -774,26 +873,104 @@ body{font-feature-settings:"kern","liga","calt"}
 
       ctx.clearRect(0, 0, W, H);
       var cY = Math.cos(yaw), sY = Math.sin(yaw), cP = Math.cos(pitch), sP = Math.sin(pitch);
-      var rad = R * (0.9 + 0.1 * intro), LENS = R * 0.36, L2 = LENS * LENS, cur = '';
-      for (var i = 0; i < N; i++) {
-        var x = P[i*3], y = P[i*3+1], z = P[i*3+2];
+      var rad = R * (0.9 + 0.1 * intro), LENS = R * 0.36, L2 = LENS * LENS;
+
+      // Project Anchor Nodes
+      for (var k = 0; k < NODES.length; k++) {
+        var node = NODES[k];
+        var x1 = node.x * cY + node.z * sY, z1 = -node.x * sY + node.z * cY;
+        var y2 = node.y * cP - z1 * sP, z2 = node.y * sP + z1 * cP;
+        var sc = 1 + z2 * 0.06;
+        nodeProj[k].px = cx + x1 * rad * sc;
+        nodeProj[k].py = cy - y2 * rad * sc;
+        nodeProj[k].z2 = z2;
+      }
+
+      if (!dragging && mx > -1e3) updateRaycast();
+
+      // Draw Ambient Star Dust
+      var curCol = '';
+      for (var i = 0; i < N_DUST; i++) {
+        var x = dustP[i*3], y = dustP[i*3+1], z = dustP[i*3+2];
         var x1 = x * cY + z * sY, z1 = -x * sY + z * cY;
         var y2 = y * cP - z1 * sP, z2 = y * sP + z1 * cP;
         var d = (z2 + 1) / 2, sc = 1 + z2 * 0.06;
         var px = cx + x1 * rad * sc, py = cy - y2 * rad * sc;
-        var a = (0.1 + 0.9 * d * d) * intro, s = (0.8 + 1.5 * d) * size0[i], hot = brass[i];
-        // cursor lens: nearby front-facing dots push outward and warm to brass
+        var a = (0.08 + 0.5 * d * d) * intro, s = (0.7 + 1.3 * d) * dustSize[i], hot = dustBrass[i];
+
         var dx = px - sx, dy = py - sy, dd = dx * dx + dy * dy;
         if (dd < L2 && z2 > -0.15) {
           var dist = Math.sqrt(dd) || 1, f = 1 - dist / LENS; f *= f;
-          px += dx / dist * f * 34; py += dy / dist * f * 34;
-          a = Math.min(1, a + f * 1.4); s += f * 2.6;
+          px += dx / dist * f * 28; py += dy / dist * f * 28;
+          a = Math.min(1, a + f * 1.2); s += f * 2.0;
           if (f > 0.04) hot = 1;
         }
         var col = hot ? '#C8A96B' : '#EDEAE3';
-        if (col !== cur) { ctx.fillStyle = col; cur = col; }
+        if (col !== curCol) { ctx.fillStyle = col; curCol = col; }
         ctx.globalAlpha = a;
         ctx.fillRect(px - s / 2, py - s / 2, s, s);
+      }
+
+      // Draw Connective Lattice Threads
+      for (var e = 0; e < EDGES.length; e++) {
+        var edge = EDGES[e];
+        var npA = nodeProj[edge[0]], npB = nodeProj[edge[1]];
+        var avgZ = (npA.z2 + npB.z2) / 2;
+        var isConnectedToHover = (hoveredNodeIndex === edge[0] || hoveredNodeIndex === edge[1]);
+
+        var lineAlpha;
+        if (isConnectedToHover) {
+          lineAlpha = 0.75 * intro;
+        } else {
+          lineAlpha = (avgZ < -0.2 ? 0.06 : (0.16 + 0.12 * (avgZ + 0.2))) * intro;
+        }
+
+        ctx.beginPath();
+        ctx.moveTo(npA.px, npA.py);
+        ctx.lineTo(npB.px, npB.py);
+        ctx.strokeStyle = isConnectedToHover ? '#C8A96B' : 'rgba(237, 234, 227, ' + lineAlpha.toFixed(3) + ')';
+        ctx.lineWidth = isConnectedToHover ? 1.6 : (avgZ > 0 ? 1.1 : 0.8);
+        ctx.stroke();
+      }
+
+      // Draw 8 Anchor Nodes
+      var pulse = 1 + 0.14 * Math.sin(t * 0.003);
+      for (var k = 0; k < NODES.length; k++) {
+        var np = nodeProj[k];
+        var z2 = np.z2;
+        var d = (z2 + 1) / 2;
+        var isHovered = (k === hoveredNodeIndex);
+
+        var alpha = (isHovered ? 1.0 : (0.35 + 0.65 * d * d)) * intro;
+        ctx.globalAlpha = alpha;
+
+        // Outer Emissive Halo Glow
+        var glowRadius = (isHovered ? 15 : (8 + 3 * d)) * pulse;
+        var glowGrad = ctx.createRadialGradient(np.px, np.py, 0, np.px, np.py, glowRadius);
+        glowGrad.addColorStop(0, isHovered ? 'rgba(200, 169, 107, 0.5)' : 'rgba(200, 169, 107, 0.22)');
+        glowGrad.addColorStop(1, 'rgba(200, 169, 107, 0)');
+
+        ctx.fillStyle = glowGrad;
+        ctx.beginPath();
+        ctx.arc(np.px, np.py, glowRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Core Circle Node
+        var coreRadius = isHovered ? 6.5 : (3.5 + 1.2 * d);
+        ctx.beginPath();
+        ctx.arc(np.px, np.py, coreRadius, 0, Math.PI * 2);
+        ctx.fillStyle = isHovered ? '#C8A96B' : '#F5F5F0';
+        ctx.fill();
+
+        ctx.lineWidth = 1.2;
+        ctx.strokeStyle = '#C8A96B';
+        ctx.stroke();
+
+        // Center Sparkle Dot
+        ctx.beginPath();
+        ctx.arc(np.px, np.py, isHovered ? 2.2 : 1.4, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fill();
       }
       ctx.globalAlpha = 1;
     }
