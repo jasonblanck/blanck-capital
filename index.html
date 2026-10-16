@@ -19,6 +19,8 @@
 <meta name="twitter:description" content="A private family office investing in tomorrow's world.">
 <meta name="twitter:image" content="https://blanckcapital.com/media/og-image.jpg">
 <meta name="theme-color" content="#07080B">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
 <link rel="icon" type="image/png" href="/media/favicon.png">
 <link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,7 +217,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* nav */
 .nav{position:absolute;top:0;left:0;right:0;z-index:50;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);border-bottom:1px solid var(--rule-dark);transition:background .3s}
 .nav.stuck{position:fixed;background:rgba(7,8,11,.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.wordmark{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--bone)}
+.wordmark{display:inline-flex;align-items:baseline;gap:10px;min-height:44px;padding:8px 0;text-decoration:none;color:var(--bone)}
 .wordmark b{font-family:var(--font-sans);font-weight:900;font-variation-settings:"wdth" 125;font-size:22px;letter-spacing:-.01em}
 .wordmark i{font-family:var(--font-serif);font-style:italic;font-size:25px}
 .nav-links{display:flex;align-items:center;gap:40px;list-style:none;margin:0;padding:0}
@@ -231,7 +233,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .overlay.open{display:flex}
 .overlay-top{display:flex;justify-content:space-between;align-items:center;height:44px}
 .overlay ul{list-style:none;margin:64px 0 0;padding:0;display:flex;flex-direction:column;gap:18px}
-.overlay ul a{font-family:var(--font-sans);font-weight:800;font-variation-settings:"wdth" 112;font-size:32px;text-decoration:none;color:var(--bone)}
+.overlay ul a{font-family:var(--font-sans);font-weight:800;font-variation-settings:"wdth" 112;font-size:32px;text-decoration:none;color:var(--bone);display:inline-flex;align-items:center;min-height:44px}
 .close-btn{width:44px;height:44px;font-size:28px;line-height:1}
 
 /* hero */
@@ -243,9 +245,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .globe-hint{position:absolute;z-index:2;transform:translateX(-50%);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--bone-dim);pointer-events:none;transition:opacity .8s}
 @media (max-width:640px){.globe-hint{display:none}}
 .globe-hint.gone{opacity:0}
-.constellation-tooltip{position:absolute;z-index:20;pointer-events:auto;cursor:pointer;opacity:0;transform:translate(-50%,-100%) scale(.92);transform-origin:bottom center;transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1),background-color .2s,border-color .2s;background:rgba(14,16,21,.92);border:1px solid rgba(200,169,107,.4);padding:10px 14px;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 15px rgba(200,169,107,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);white-space:nowrap}
+.constellation-tooltip{position:absolute;z-index:20;pointer-events:none;cursor:pointer;opacity:0;transform:translate(-50%,-100%) scale(.92);transform-origin:bottom center;transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1),background-color .2s,border-color .2s;background:rgba(14,16,21,.92);border:1px solid rgba(200,169,107,.4);padding:10px 14px;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 15px rgba(200,169,107,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);white-space:nowrap}
 .constellation-tooltip:hover,.constellation-tooltip:active{border-color:var(--brass);background:rgba(22,26,34,.96)}
-.constellation-tooltip.visible{opacity:1;transform:translate(-50%,-100%) scale(1)}
+.constellation-tooltip.visible{opacity:1;pointer-events:auto;transform:translate(-50%,-100%) scale(1)}
 .ct-title{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:2px}
 .ct-sub{font-family:var(--font-sans);font-size:13px;color:var(--bone-muted);font-weight:400;letter-spacing:.01em}
 .theme{transition:background-color .5s ease,outline .5s ease}
@@ -285,7 +287,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .theme:nth-child(3n+2),.theme:nth-child(3n){padding-left:32px;border-left:1px solid var(--rule-dark)}
 .theme:nth-last-child(-n+3){border-bottom:0}
 .theme ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
-.theme a{font-family:var(--font-sans);font-weight:700;font-size:26px;line-height:1.2;color:var(--bone);text-decoration:none;display:inline-block;padding:6px 0}
+.theme a{font-family:var(--font-sans);font-weight:700;font-size:26px;line-height:1.2;color:var(--bone);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;min-width:44px;padding:6px 0}
 .theme a:hover,.theme a:focus-visible{color:var(--brass);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 .port-foot{margin-top:40px;font-size:14px;color:var(--bone-dim)}
 
@@ -379,10 +381,11 @@ body{font-feature-settings:"kern","liga","calt"}
 .q-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(237,234,227,.25);color:var(--bone-muted);display:flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s}
 .q-arrow:hover,.q-arrow:focus-visible{color:var(--brass);border-color:var(--brass)}
 .q-arrow svg{width:14px;height:14px;fill:currentColor}
-.q-dots{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px}
-.q-dot{width:8px;height:8px;border-radius:50%;background:rgba(237,234,227,.25);border:0;cursor:pointer;padding:16px 0;box-sizing:content-box;background-clip:content-box;transition:background .3s,width .3s}
-.q-dot:hover,.q-dot:focus-visible{background:var(--bone)}
-.q-dot.on{width:24px;border-radius:4px;background:var(--brass)}
+.q-dots{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0}
+.q-dot{width:44px;height:44px;border:0;background:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center}
+.q-dot::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(237,234,227,.25);transition:background .3s,width .3s}
+.q-dot:hover::before,.q-dot:focus-visible::before{background:var(--bone)}
+.q-dot.on::before{width:24px;border-radius:4px;background:var(--brass)}
 
 /* reveal */
 .js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
@@ -588,7 +591,7 @@ body{font-feature-settings:"kern","liga","calt"}
     <div class="quotes-attr" id="qAttr"></div>
     <div class="quotes-ctrls">
       <button class="q-arrow" id="qPrev" type="button" aria-label="Previous quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
-      <div class="q-dots" id="qDots" role="tablist" aria-label="Select quote"></div>
+      <div class="q-dots" id="qDots" role="group" aria-label="Select quote"></div>
       <button class="q-arrow" id="qNext" type="button" aria-label="Next quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>
     </div>
   </div>
@@ -678,6 +681,7 @@ body{font-feature-settings:"kern","liga","calt"}
 
   // mobile menu
   var menu = document.getElementById('menu'), menuBtn = document.getElementById('menuBtn'), menuClose = document.getElementById('menuClose');
+  var menuFocusables = menu ? menu.querySelectorAll('a[href], button:not([disabled])') : [];
   function setMenu(open, focusBtn){
     menu.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -688,14 +692,29 @@ body{font-feature-settings:"kern","liga","calt"}
   menuBtn.addEventListener('click', function(){ setMenu(true); });
   menuClose.addEventListener('click', function(){ setMenu(false, true); });
   menu.querySelectorAll('ul a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false, false); }); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false, true); });
+  document.addEventListener('keydown', function(e){
+    if (!menu.classList.contains('open')) return;
+    if (e.key === 'Escape') { setMenu(false, true); return; }
+    if (e.key === 'Tab' && menuFocusables.length) {
+      var first = menuFocusables[0], last = menuFocusables[menuFocusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 1024 && menu.classList.contains('open')) setMenu(false, false);
+  });
 
   // hero: live globe animation
   var hv = document.getElementById('heroVideo');
   var globe = null;
   if (!reduce) {
     globe = initGlobe(document.getElementById('heroGlobe'), document.getElementById('globeHint'));
-    if (globe && hv) hv.remove();
+    if (globe && hv) {
+      hv.remove();
+    } else if (hv) {
+      var hvp = hv.play(); if (hvp && hvp.catch) hvp.catch(function(){});
+    }
   }
 
   function initGlobe(cv, hint){
@@ -816,8 +835,10 @@ body{font-feature-settings:"kern","liga","calt"}
           if (ctTitle) ctTitle.textContent = node.title;
           if (ctSub) ctSub.textContent = node.sub;
           tooltipEl.classList.add('visible');
+          tooltipEl.setAttribute('aria-hidden', 'false');
         } else if (tooltipEl) {
           tooltipEl.classList.remove('visible');
+          tooltipEl.setAttribute('aria-hidden', 'true');
         }
       }
     }
@@ -825,11 +846,15 @@ body{font-feature-settings:"kern","liga","calt"}
     cv.addEventListener('pointerdown', function(e){
       var b = cv.getBoundingClientRect();
       var x = e.clientX - b.left, y = e.clientY - b.top;
-      if (!overGlobe(x, y)) return;
+      if (!overGlobe(x, y)) {
+        setActiveNode(-1);
+        return;
+      }
       dragging = true; lastX = e.clientX; lastY = e.clientY;
       clickStartX = e.clientX; clickStartY = e.clientY;
       vYaw = vPitch = 0;
-      cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; dismissHint();
+      if (cv.setPointerCapture && e.pointerId != null) { try { cv.setPointerCapture(e.pointerId); } catch(err){} }
+      cv.style.cursor = 'grabbing'; dismissHint();
     });
     cv.addEventListener('pointermove', function(e){
       var b = cv.getBoundingClientRect();
@@ -845,10 +870,16 @@ body{font-feature-settings:"kern","liga","calt"}
         cv.style.cursor = hoveredNodeIndex >= 0 ? 'pointer' : (overGlobe(x, y) ? 'grab' : '');
       }
     });
+    function cancelDrag(e){
+      if (!dragging) return;
+      dragging = false;
+      if (e && e.pointerId != null && cv.releasePointerCapture) { try { cv.releasePointerCapture(e.pointerId); } catch(err){} }
+      cv.style.cursor = hoveredNodeIndex >= 0 ? 'pointer' : (overGlobe(mx, my) ? 'grab' : '');
+    }
     function release(e){
       if (!dragging) return;
       dragging = false;
-      if (e && e.pointerId && cv.releasePointerCapture) { try { cv.releasePointerCapture(e.pointerId); } catch(err){} }
+      if (e && e.pointerId != null && cv.releasePointerCapture) { try { cv.releasePointerCapture(e.pointerId); } catch(err){} }
       var moveDist = Math.hypot(e.clientX - clickStartX, e.clientY - clickStartY);
       if (moveDist < 8) {
         var b = cv.getBoundingClientRect();
@@ -867,7 +898,7 @@ body{font-feature-settings:"kern","liga","calt"}
       cv.style.cursor = hoveredNodeIndex >= 0 ? 'pointer' : (overGlobe(mx, my) ? 'grab' : '');
     }
     cv.addEventListener('pointerup', release);
-    cv.addEventListener('pointercancel', release);
+    cv.addEventListener('pointercancel', cancelDrag);
     cv.addEventListener('pointerleave', function(){
       if (!dragging) {
         mx = my = -1e4;
@@ -1065,11 +1096,11 @@ body{font-feature-settings:"kern","liga","calt"}
     var j = Math.floor(Math.random() * (i + 1));
     var temp = QS[i]; QS[i] = QS[j]; QS[j] = temp;
   }
-  var qi = 0, qTimer = null, qEl = document.getElementById('qText'), qAt = document.getElementById('qAttr'), qDots = document.getElementById('qDots');
+  var qi = 0, qTimer = null, qFadeTimer = null, qEl = document.getElementById('qText'), qAt = document.getElementById('qAttr'), qDots = document.getElementById('qDots');
   if (qEl && qAt && qDots) {
     function buildQDots(){
       qDots.innerHTML = '';
-      var total = QS.length, maxDots = 7;
+      var total = QS.length, maxDots = window.innerWidth <= 480 ? 4 : 7;
       var start = 0;
       if (total > maxDots) {
         start = qi - Math.floor(maxDots / 2);
@@ -1083,30 +1114,44 @@ body{font-feature-settings:"kern","liga","calt"}
           b.className = 'q-dot' + (i === qi ? ' on' : '');
           b.type = 'button';
           b.setAttribute('aria-label', 'Quote ' + (i + 1) + ' of ' + total);
+          if (i === qi) b.setAttribute('aria-current', 'true');
           b.addEventListener('click', function(){ setQ(i, true); });
           qDots.appendChild(b);
         })(start + idx);
       }
     }
-    function setQ(n, manual){
+    function setQ(n, manual, immediate){
       qi = (n + QS.length) % QS.length;
-      qEl.classList.remove('show');
-      setTimeout(function(){
+      if (qFadeTimer) { clearTimeout(qFadeTimer); qFadeTimer = null; }
+      if (immediate || reduce) {
         qEl.textContent = QS[qi].t;
         qAt.textContent = '— ' + QS[qi].a;
         qEl.classList.add('show');
-      }, 250);
+      } else {
+        qEl.classList.remove('show');
+        qFadeTimer = setTimeout(function(){
+          qEl.textContent = QS[qi].t;
+          qAt.textContent = '— ' + QS[qi].a;
+          qEl.classList.add('show');
+          qFadeTimer = null;
+        }, 250);
+      }
       buildQDots();
       if (manual) resetQTimer();
     }
     function resetQTimer(){
-      if (qTimer) clearInterval(qTimer);
-      if (!reduce) qTimer = setInterval(function(){ setQ(qi + 1, false); }, 7500);
+      if (qTimer) { clearInterval(qTimer); qTimer = null; }
+      if (!reduce && !document.hidden) qTimer = setInterval(function(){ setQ(qi + 1, false, false); }, 7500);
     }
     var qPrev = document.getElementById('qPrev'), qNext = document.getElementById('qNext');
-    if (qPrev) qPrev.addEventListener('click', function(){ setQ(qi - 1, true); });
-    if (qNext) qNext.addEventListener('click', function(){ setQ(qi + 1, true); });
-    setQ(0, false);
+    if (qPrev) qPrev.addEventListener('click', function(){ setQ(qi - 1, true, false); });
+    if (qNext) qNext.addEventListener('click', function(){ setQ(qi + 1, true, false); });
+    window.addEventListener('resize', buildQDots);
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden) { if (qTimer) { clearInterval(qTimer); qTimer = null; } }
+      else { resetQTimer(); }
+    });
+    setQ(0, false, true);
     resetQTimer();
   }
 

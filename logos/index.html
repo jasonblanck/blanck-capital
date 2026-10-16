@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>Blanck Capital | Brand Assets & Logo Suite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +21,7 @@
   --font-mono: "IBM Plex Mono", monospace;
 }
 *, *::before, *::after { box-sizing: border-box; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 body {
   margin: 0;
   background: var(--ink);
@@ -26,6 +29,7 @@ body {
   font-family: var(--font-sans);
   padding: 40px 24px 80px;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 header {
   max-width: 1200px;
@@ -61,6 +65,9 @@ h1 {
   text-decoration: none;
   border: 1px solid rgba(237, 234, 227, 0.25);
   padding: 10px 18px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   transition: color .2s, border-color .2s;
 }
 .home-link:hover { color: var(--brass); border-color: var(--brass); }
@@ -69,7 +76,7 @@ h1 {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
   gap: 32px;
 }
 
@@ -136,6 +143,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: .15em;
   padding: 10px 14px;
+  min-height: 44px;
   border: 1px solid rgba(237, 234, 227, 0.3);
   color: var(--bone);
   text-decoration: none;
@@ -202,7 +210,7 @@ canvas { display: none; }
       </div>
       <div class="card-actions">
         <a class="btn" href="blanck-capital-icon-gold.svg" download>Download SVG</a>
-        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-icon-gold.svg', 2000, 2000, 'blanck-capital-icon-gold.png')">PNG (2000px)</button>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-icon-gold.svg" data-w="2000" data-h="2000" data-out="blanck-capital-icon-gold.png">PNG (2000px)</button>
       </div>
     </div>
   </div>
@@ -218,7 +226,7 @@ canvas { display: none; }
       </div>
       <div class="card-actions">
         <a class="btn" href="blanck-capital-icon-dark.svg" download>Download SVG</a>
-        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-icon-dark.svg', 2000, 2000, 'blanck-capital-icon-dark.png')">PNG (2000px)</button>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-icon-dark.svg" data-w="2000" data-h="2000" data-out="blanck-capital-icon-dark.png">PNG (2000px)</button>
       </div>
     </div>
   </div>
@@ -234,7 +242,7 @@ canvas { display: none; }
       </div>
       <div class="card-actions">
         <a class="btn" href="blanck-capital-logo-horizontal-dark.svg" download>Download SVG</a>
-        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-logo-horizontal-dark.svg', 3200, 854, 'blanck-capital-logo-horizontal-dark.png')">PNG (3200px)</button>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-horizontal-dark.svg" data-w="3200" data-h="854" data-out="blanck-capital-logo-horizontal-dark.png">PNG (3200px)</button>
       </div>
     </div>
   </div>
@@ -250,7 +258,7 @@ canvas { display: none; }
       </div>
       <div class="card-actions">
         <a class="btn" href="blanck-capital-logo-horizontal-light.svg" download>Download SVG</a>
-        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-logo-horizontal-light.svg', 3200, 854, 'blanck-capital-logo-horizontal-light.png')">PNG (3200px)</button>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-horizontal-light.svg" data-w="3200" data-h="854" data-out="blanck-capital-logo-horizontal-light.png">PNG (3200px)</button>
       </div>
     </div>
   </div>
@@ -266,7 +274,7 @@ canvas { display: none; }
       </div>
       <div class="card-actions">
         <a class="btn" href="blanck-capital-logo-stacked-dark.svg" download>Download SVG</a>
-        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-logo-stacked-dark.svg', 2400, 2400, 'blanck-capital-logo-stacked-dark.png')">PNG (2400px)</button>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-stacked-dark.svg" data-w="2400" data-h="2400" data-out="blanck-capital-logo-stacked-dark.png">PNG (2400px)</button>
       </div>
     </div>
   </div>
@@ -282,7 +290,7 @@ canvas { display: none; }
       </div>
       <div class="card-actions">
         <a class="btn" href="blanck-capital-logo-stacked-light.svg" download>Download SVG</a>
-        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-logo-stacked-light.svg', 2400, 2400, 'blanck-capital-logo-stacked-light.png')">PNG (2400px)</button>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-stacked-light.svg" data-w="2400" data-h="2400" data-out="blanck-capital-logo-stacked-light.png">PNG (2400px)</button>
       </div>
     </div>
   </div>
@@ -298,7 +306,7 @@ canvas { display: none; }
       </div>
       <div class="card-actions">
         <a class="btn" href="blanck-capital-monochrome-black.svg" download>Download SVG</a>
-        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-monochrome-black.svg', 3200, 854, 'blanck-capital-monochrome-black.png')">PNG (3200px)</button>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-monochrome-black.svg" data-w="3200" data-h="854" data-out="blanck-capital-monochrome-black.png">PNG (3200px)</button>
       </div>
     </div>
   </div>
@@ -314,7 +322,7 @@ canvas { display: none; }
       </div>
       <div class="card-actions">
         <a class="btn" href="blanck-capital-monochrome-white.svg" download>Download SVG</a>
-        <button class="btn btn-primary" onclick="exportPNG('blanck-capital-monochrome-white.svg', 3200, 854, 'blanck-capital-monochrome-white.png')">PNG (3200px)</button>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-monochrome-white.svg" data-w="3200" data-h="854" data-out="blanck-capital-monochrome-white.png">PNG (3200px)</button>
       </div>
     </div>
   </div>
@@ -354,33 +362,47 @@ canvas { display: none; }
 <script>
 function exportPNG(svgUrl, targetW, targetH, filename) {
   fetch(svgUrl)
-    .then(r => r.text())
-    .then(svgText => {
-      const blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const img = new Image();
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    })
+    .then(function(svgText) {
+      var blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var img = new Image();
       img.onload = function() {
-        const cv = document.getElementById('exportCanvas');
+        var cv = document.getElementById('exportCanvas');
         cv.width = targetW;
         cv.height = targetH;
-        const ctx = cv.getContext('2d');
+        var ctx = cv.getContext('2d');
         ctx.clearRect(0, 0, targetW, targetH);
         ctx.drawImage(img, 0, 0, targetW, targetH);
         URL.revokeObjectURL(url);
-        
+
         cv.toBlob(function(pngBlob) {
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(pngBlob);
+          if (!pngBlob) return;
+          var pngUrl = URL.createObjectURL(pngBlob);
+          var a = document.createElement('a');
+          a.href = pngUrl;
           a.download = filename;
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
+          setTimeout(function() { URL.revokeObjectURL(pngUrl); }, 1000);
         }, 'image/png');
+      };
+      img.onerror = function() {
+        URL.revokeObjectURL(url);
       };
       img.src = url;
     })
-    .catch(err => alert('Export failed: ' + err));
+    .catch(function(err) { alert('Export failed: ' + err); });
 }
+document.querySelectorAll('button[data-svg]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    exportPNG(btn.getAttribute('data-svg'), Number(btn.getAttribute('data-w')), Number(btn.getAttribute('data-h')), btn.getAttribute('data-out'));
+  });
+});
 </script>
 
 </body>
