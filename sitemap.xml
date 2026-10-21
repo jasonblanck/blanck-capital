@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://blanckcapital.com/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://blanckcapital.com/media/og-image.jpg</image:loc>
+      <image:title>Blanck Capital | Private Family Office</image:title>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://blanckcapital.com/media/film-poster.jpg</video:thumbnail_loc>
+      <video:title>Blanck Capital · Sixty seconds on how we invest</video:title>
+      <video:description>Blanck Capital is a private family office based in New York, backing the founders, ideas, and companies defining the next century.</video:description>
+      <video:content_loc>https://blanckcapital.com/media/film-720p.mp4</video:content_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2026-09-27T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 </urlset>
