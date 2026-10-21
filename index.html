@@ -20,7 +20,7 @@
 <meta name="twitter:image" content="https://blanckcapital.com/media/og-image.jpg">
 <meta name="theme-color" content="#07080B">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
 <link rel="icon" type="image/png" href="/media/favicon.png">
 <link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -827,6 +827,17 @@ body{font-feature-settings:"kern","liga","calt"}
       return bestIdx;
     }
 
+    var activeAtDown = -1;
+
+    function updateTooltipPos(idx) {
+      if (idx >= 0 && tooltipEl && W) {
+        var activeNp = nodeProj[idx];
+        var clampedX = Math.max(90, Math.min(W - 90, activeNp.px));
+        tooltipEl.style.left = clampedX + 'px';
+        tooltipEl.style.top = (activeNp.py - 16) + 'px';
+      }
+    }
+
     function setActiveNode(idx) {
       if (idx !== hoveredNodeIndex) {
         hoveredNodeIndex = idx;
@@ -834,6 +845,7 @@ body{font-feature-settings:"kern","liga","calt"}
           var node = NODES[hoveredNodeIndex];
           if (ctTitle) ctTitle.textContent = node.title;
           if (ctSub) ctSub.textContent = node.sub;
+          updateTooltipPos(hoveredNodeIndex);
           tooltipEl.classList.add('visible');
           tooltipEl.setAttribute('aria-hidden', 'false');
         } else if (tooltipEl) {
@@ -846,10 +858,12 @@ body{font-feature-settings:"kern","liga","calt"}
     cv.addEventListener('pointerdown', function(e){
       var b = cv.getBoundingClientRect();
       var x = e.clientX - b.left, y = e.clientY - b.top;
-      if (!overGlobe(x, y)) {
+      var downNodeIdx = findNodeAt(x, y);
+      if (!overGlobe(x, y) && downNodeIdx < 0) {
         setActiveNode(-1);
         return;
       }
+      activeAtDown = (downNodeIdx >= 0 && downNodeIdx === hoveredNodeIndex && tooltipEl && tooltipEl.classList.contains('visible')) ? downNodeIdx : -1;
       dragging = true; lastX = e.clientX; lastY = e.clientY;
       clickStartX = e.clientX; clickStartY = e.clientY;
       vYaw = vPitch = 0;
@@ -864,7 +878,7 @@ body{font-feature-settings:"kern","liga","calt"}
         vYaw = (e.clientX - lastX) * 0.006; vPitch = (e.clientY - lastY) * 0.006;
         lastX = e.clientX; lastY = e.clientY;
         yaw += vYaw; pitch = Math.max(-1.2, Math.min(1.2, pitch + vPitch));
-      } else {
+      } else if (e.pointerType !== 'touch') {
         var nodeIdx = findNodeAt(x, y);
         setActiveNode(nodeIdx);
         cv.style.cursor = hoveredNodeIndex >= 0 ? 'pointer' : (overGlobe(x, y) ? 'grab' : '');
@@ -886,7 +900,10 @@ body{font-feature-settings:"kern","liga","calt"}
         var x = e.clientX - b.left, y = e.clientY - b.top;
         var tappedIdx = findNodeAt(x, y);
         if (tappedIdx >= 0) {
-          if (tappedIdx === hoveredNodeIndex && tooltipEl && tooltipEl.classList.contains('visible')) {
+          var shouldNav = (e.pointerType === 'touch')
+            ? (tappedIdx === activeAtDown)
+            : (tappedIdx === hoveredNodeIndex && tooltipEl && tooltipEl.classList.contains('visible'));
+          if (shouldNav) {
             navigateToTheme(NODES[tappedIdx].targetId);
           } else {
             setActiveNode(tappedIdx);
@@ -945,9 +962,7 @@ body{font-feature-settings:"kern","liga","calt"}
         if (activeNp.z2 < -0.3) {
           setActiveNode(-1);
         } else {
-          var clampedX = Math.max(90, Math.min(W - 90, activeNp.px));
-          tooltipEl.style.left = clampedX + 'px';
-          tooltipEl.style.top = (activeNp.py - 16) + 'px';
+          updateTooltipPos(hoveredNodeIndex);
         }
       }
 
@@ -1099,7 +1114,7 @@ body{font-feature-settings:"kern","liga","calt"}
   var qi = 0, qTimer = null, qFadeTimer = null, qEl = document.getElementById('qText'), qAt = document.getElementById('qAttr'), qDots = document.getElementById('qDots');
   if (qEl && qAt && qDots) {
     function buildQDots(){
-      qDots.innerHTML = '';
+      qDots.textContent = '';
       var total = QS.length, maxDots = window.innerWidth <= 480 ? 4 : 7;
       var start = 0;
       if (total > maxDots) {
