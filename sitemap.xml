@@ -10,15 +10,17 @@
     <image:image>
       <image:loc>https://blanckcapital.com/media/og-image.jpg</image:loc>
       <image:title>Blanck Capital | Private Family Office</image:title>
+      <image:caption>Blanck Capital: Investing in Tomorrow's World.</image:caption>
     </image:image>
     <video:video>
       <video:thumbnail_loc>https://blanckcapital.com/media/film-poster.jpg</video:thumbnail_loc>
       <video:title>Blanck Capital · Sixty seconds on how we invest</video:title>
-      <video:description>Blanck Capital is a private family office based in New York, backing the founders, ideas, and companies defining the next century.</video:description>
+      <video:description>The Blanck Capital film: sixty seconds on how we back the founders, ideas, and companies that will define the next century.</video:description>
       <video:content_loc>https://blanckcapital.com/media/film-720p.mp4</video:content_loc>
       <video:duration>60</video:duration>
       <video:publication_date>2026-09-27T00:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://blanckcapital.com/">Blanck Capital</video:uploader>
     </video:video>
   </url>
 </urlset>
