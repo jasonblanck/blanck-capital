@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-821VOb7c2EdGc2EEo8ght0igg45pesgCCVaqvIIQMIY='; style-src 'unsafe-inline' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' blob:; media-src 'none'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
+<title>Blanck Capital | Brand Assets &amp; Logo Suite</title>
 <meta name="description" content="Official Blanck Capital wordmarks and vector brand assets.">
 <meta name="theme-color" content="#07080B">
 <link rel="canonical" href="https://blanckcapital.com/">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-yAq9n7u1RqK8Ic1HvCmtM0kqx8MJpNlk5ubliCGbKBM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'none'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; upgrade-insecure-requests">
-<title>Blanck Capital | Brand Assets & Logo Suite</title>
 <link rel="icon" type="image/png" sizes="256x256" href="/media/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Bodoni+Moda:ital,wght@1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" crossorigin="anonymous" referrerpolicy="no-referrer">
 <style>
@@ -129,7 +129,7 @@ h1 {
   font-weight: 800;
   font-size: 18px;
   color: var(--bone);
-  margin-bottom: 6px;
+  margin: 0 0 6px;
 }
 .card-desc {
   font-size: 13px;
@@ -169,6 +169,13 @@ h1 {
   border-top: 1px solid rgba(237, 234, 227, 0.15);
   padding-top: 48px;
 }
+.specs-heading {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 28px;
+  margin: 8px 0 0;
+}
 .colors-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -186,10 +193,21 @@ h1 {
   margin-bottom: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+.swatch-ink { background: var(--ink); }
+.swatch-bone { background: var(--bone); }
+.swatch-brass { background: var(--brass); }
+.swatch-brass-deep { background: var(--brass-deep); }
 .c-name { font-family: var(--font-sans); font-weight: 700; font-size: 14px; }
+.c-name-bone { color: var(--bone); }
 .c-hex { font-family: var(--font-mono); font-size: 12px; color: var(--bone-dim); margin-top: 4px; }
-
-canvas { display: none; }
+.export-status {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  min-height: 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--brass);
+}
 </style>
 </head>
 <body>
@@ -202,196 +220,224 @@ canvas { display: none; }
   <a class="home-link" href="/">← Back to main site</a>
 </header>
 
-<main class="grid">
+<main>
+<div class="grid">
 
   <div class="card">
     <div class="card-preview dark-bg">
-      <img src="blanck-capital-logo-horizontal-dark.svg" alt="Horizontal Wordmark for Dark Backgrounds">
+      <img src="blanck-capital-logo-horizontal-dark.svg" width="1200" height="180" alt="Horizontal Wordmark for Dark Backgrounds">
     </div>
     <div class="card-info">
       <div>
-        <div class="card-title">Primary Wordmark (Dark Background)</div>
+        <h2 class="card-title">Primary Wordmark (Dark Background)</h2>
         <div class="card-desc">Official website wordmark in Bone (#EDEAE3) on a transparent background, converted to pure vector outlines with zero font dependencies.</div>
       </div>
       <div class="card-actions">
-        <a class="btn" href="blanck-capital-logo-horizontal-dark.svg" download>Download SVG</a>
-        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-horizontal-dark.svg" data-w="3200" data-h="480" data-out="blanck-capital-logo-horizontal-dark.png">PNG (3200px)</button>
+        <a class="btn" href="blanck-capital-logo-horizontal-dark.svg" download aria-label="Download SVG: Primary Wordmark (Dark Background)">Download SVG</a>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-horizontal-dark.svg" data-w="3200" data-h="480" data-out="blanck-capital-logo-horizontal-dark.png" aria-label="PNG (3200px): Primary Wordmark (Dark Background)">PNG (3200px)</button>
       </div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-preview checkered-bg">
-      <img src="blanck-capital-logo-dark-bg.svg" alt="Horizontal Wordmark on Solid Ink Background">
+      <img src="blanck-capital-logo-dark-bg.svg" width="1200" height="360" alt="Horizontal Wordmark on Solid Ink Background">
     </div>
     <div class="card-info">
       <div>
-        <div class="card-title">Primary Wordmark (With Ink Backdrop)</div>
+        <h2 class="card-title">Primary Wordmark (With Ink Backdrop)</h2>
         <div class="card-desc">Bone (#EDEAE3) wordmark locked up on solid Ink (#07080B) background, matching the blanckcapital.com header.</div>
       </div>
       <div class="card-actions">
-        <a class="btn" href="blanck-capital-logo-dark-bg.svg" download>Download SVG</a>
-        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-dark-bg.svg" data-w="3200" data-h="960" data-out="blanck-capital-logo-dark-bg.png">PNG (3200px)</button>
+        <a class="btn" href="blanck-capital-logo-dark-bg.svg" download aria-label="Download SVG: Primary Wordmark (With Ink Backdrop)">Download SVG</a>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-dark-bg.svg" data-w="3200" data-h="960" data-out="blanck-capital-logo-dark-bg.png" aria-label="PNG (3200px): Primary Wordmark (With Ink Backdrop)">PNG (3200px)</button>
       </div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-preview light-bg">
-      <img src="blanck-capital-logo-horizontal-light.svg" alt="Horizontal Wordmark for Light Backgrounds">
+      <img src="blanck-capital-logo-horizontal-light.svg" width="1200" height="180" alt="Horizontal Wordmark for Light Backgrounds">
     </div>
     <div class="card-info">
       <div>
-        <div class="card-title">Primary Wordmark (Light Background)</div>
+        <h2 class="card-title">Primary Wordmark (Light Background)</h2>
         <div class="card-desc">Official website wordmark in Ink (#07080B) on a transparent background for white documents, decks, letterheads, and press materials.</div>
       </div>
       <div class="card-actions">
-        <a class="btn" href="blanck-capital-logo-horizontal-light.svg" download>Download SVG</a>
-        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-horizontal-light.svg" data-w="3200" data-h="480" data-out="blanck-capital-logo-horizontal-light.png">PNG (3200px)</button>
+        <a class="btn" href="blanck-capital-logo-horizontal-light.svg" download aria-label="Download SVG: Primary Wordmark (Light Background)">Download SVG</a>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-horizontal-light.svg" data-w="3200" data-h="480" data-out="blanck-capital-logo-horizontal-light.png" aria-label="PNG (3200px): Primary Wordmark (Light Background)">PNG (3200px)</button>
       </div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-preview dark-bg">
-      <img src="blanck-capital-logo-stacked-dark.svg" alt="Stacked Wordmark for Dark Backgrounds">
+      <img src="blanck-capital-logo-stacked-dark.svg" width="800" height="420" alt="Stacked Wordmark for Dark Backgrounds">
     </div>
     <div class="card-info">
       <div>
-        <div class="card-title">Stacked Wordmark (Dark Background)</div>
+        <h2 class="card-title">Stacked Wordmark (Dark Background)</h2>
         <div class="card-desc">Centered two-line wordmark in Bone (#EDEAE3) on a transparent background for square placements and dark layouts.</div>
       </div>
       <div class="card-actions">
-        <a class="btn" href="blanck-capital-logo-stacked-dark.svg" download>Download SVG</a>
-        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-stacked-dark.svg" data-w="2400" data-h="1260" data-out="blanck-capital-logo-stacked-dark.png">PNG (2400px)</button>
+        <a class="btn" href="blanck-capital-logo-stacked-dark.svg" download aria-label="Download SVG: Stacked Wordmark (Dark Background)">Download SVG</a>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-stacked-dark.svg" data-w="2400" data-h="1260" data-out="blanck-capital-logo-stacked-dark.png" aria-label="PNG (2400px): Stacked Wordmark (Dark Background)">PNG (2400px)</button>
       </div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-preview light-bg">
-      <img src="blanck-capital-logo-stacked-light.svg" alt="Stacked Wordmark for Light Backgrounds">
+      <img src="blanck-capital-logo-stacked-light.svg" width="800" height="420" alt="Stacked Wordmark for Light Backgrounds">
     </div>
     <div class="card-info">
       <div>
-        <div class="card-title">Stacked Wordmark (Light Background)</div>
+        <h2 class="card-title">Stacked Wordmark (Light Background)</h2>
         <div class="card-desc">Centered two-line wordmark in Ink (#07080B) on a transparent background for light documents and square placements.</div>
       </div>
       <div class="card-actions">
-        <a class="btn" href="blanck-capital-logo-stacked-light.svg" download>Download SVG</a>
-        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-stacked-light.svg" data-w="2400" data-h="1260" data-out="blanck-capital-logo-stacked-light.png">PNG (2400px)</button>
+        <a class="btn" href="blanck-capital-logo-stacked-light.svg" download aria-label="Download SVG: Stacked Wordmark (Light Background)">Download SVG</a>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-logo-stacked-light.svg" data-w="2400" data-h="1260" data-out="blanck-capital-logo-stacked-light.png" aria-label="PNG (2400px): Stacked Wordmark (Light Background)">PNG (2400px)</button>
       </div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-preview checkered-bg">
-      <img src="blanck-capital-monochrome-white.svg" alt="Monochrome White Wordmark">
+      <img src="blanck-capital-monochrome-white.svg" width="1200" height="180" alt="Monochrome White Wordmark">
     </div>
     <div class="card-info">
       <div>
-        <div class="card-title">Monochrome Solid White</div>
+        <h2 class="card-title">Monochrome Solid White</h2>
         <div class="card-desc">100% Pure White (#FFFFFF) horizontal wordmark for dark slides, partner overlays, screen printing, and foil stamping.</div>
       </div>
       <div class="card-actions">
-        <a class="btn" href="blanck-capital-monochrome-white.svg" download>Download SVG</a>
-        <button class="btn btn-primary" type="button" data-svg="blanck-capital-monochrome-white.svg" data-w="3200" data-h="480" data-out="blanck-capital-monochrome-white.png">PNG (3200px)</button>
+        <a class="btn" href="blanck-capital-monochrome-white.svg" download aria-label="Download SVG: Monochrome Solid White">Download SVG</a>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-monochrome-white.svg" data-w="3200" data-h="480" data-out="blanck-capital-monochrome-white.png" aria-label="PNG (3200px): Monochrome Solid White">PNG (3200px)</button>
       </div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-preview light-bg">
-      <img src="blanck-capital-monochrome-black.svg" alt="Monochrome Black Wordmark">
+      <img src="blanck-capital-monochrome-black.svg" width="1200" height="180" alt="Monochrome Black Wordmark">
     </div>
     <div class="card-info">
       <div>
-        <div class="card-title">Monochrome Solid Black</div>
+        <h2 class="card-title">Monochrome Solid Black</h2>
         <div class="card-desc">100% Pure Black (#000000) horizontal wordmark for single-color print production, engraving, and embossing.</div>
       </div>
       <div class="card-actions">
-        <a class="btn" href="blanck-capital-monochrome-black.svg" download>Download SVG</a>
-        <button class="btn btn-primary" type="button" data-svg="blanck-capital-monochrome-black.svg" data-w="3200" data-h="480" data-out="blanck-capital-monochrome-black.png">PNG (3200px)</button>
+        <a class="btn" href="blanck-capital-monochrome-black.svg" download aria-label="Download SVG: Monochrome Solid Black">Download SVG</a>
+        <button class="btn btn-primary" type="button" data-svg="blanck-capital-monochrome-black.svg" data-w="3200" data-h="480" data-out="blanck-capital-monochrome-black.png" aria-label="PNG (3200px): Monochrome Solid Black">PNG (3200px)</button>
       </div>
     </div>
   </div>
 
-</main>
+</div>
+
+<p class="export-status" id="exportStatus" role="status" aria-live="polite"></p>
 
 <section class="specs-section">
   <span class="brand-title">Brand Specs</span>
-  <h2 style="font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 28px; margin: 8px 0 0;">Official Brand Colors</h2>
+  <h2 class="specs-heading">Official Brand Colors</h2>
   
   <div class="colors-grid">
     <div class="color-box">
-      <div class="swatch" style="background: #07080B;"></div>
+      <div class="swatch swatch-ink"></div>
       <div class="c-name">Ink (Dark)</div>
       <div class="c-hex">#07080B</div>
     </div>
     <div class="color-box">
-      <div class="swatch" style="background: #EDEAE3;"></div>
-      <div class="c-name" style="color: #EDEAE3;">Bone (Light)</div>
+      <div class="swatch swatch-bone"></div>
+      <div class="c-name c-name-bone">Bone (Light)</div>
       <div class="c-hex">#EDEAE3</div>
     </div>
     <div class="color-box">
-      <div class="swatch" style="background: #C8A96B;"></div>
+      <div class="swatch swatch-brass"></div>
       <div class="c-name">Brass (Gold Accent)</div>
       <div class="c-hex">#C8A96B</div>
     </div>
     <div class="color-box">
-      <div class="swatch" style="background: #6E5626;"></div>
+      <div class="swatch swatch-brass-deep"></div>
       <div class="c-name">Brass Deep</div>
       <div class="c-hex">#6E5626</div>
     </div>
   </div>
 </section>
-
-<canvas id="exportCanvas"></canvas>
+</main>
 
 <script>
-function exportPNG(svgUrl, targetW, targetH, filename) {
-  fetch(svgUrl)
-    .then(function(r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.text();
-    })
-    .then(function(svgText) {
-      var blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
-      var url = URL.createObjectURL(blob);
-      var img = new Image();
-      img.onload = function() {
-        var cv = document.getElementById('exportCanvas');
-        cv.width = targetW;
-        cv.height = targetH;
-        var ctx = cv.getContext('2d');
-        ctx.clearRect(0, 0, targetW, targetH);
-        ctx.drawImage(img, 0, 0, targetW, targetH);
-        URL.revokeObjectURL(url);
+(function() {
+  var statusEl = document.getElementById('exportStatus');
+  function setStatus(msg) {
+    if (statusEl) statusEl.textContent = msg;
+  }
+  function exportPNG(svgUrl, targetW, targetH, filename) {
+    if (!/^[a-z0-9-]+\.svg$/.test(svgUrl || '') || !/^[a-z0-9-]+\.png$/.test(filename || '')) {
+      setStatus('Export failed: invalid asset filename.');
+      return;
+    }
+    if (!Number.isFinite(targetW) || !Number.isFinite(targetH) || targetW < 1 || targetH < 1 || targetW > 8192 || targetH > 8192) {
+      setStatus('Export failed: invalid export dimensions.');
+      return;
+    }
+    setStatus('Exporting ' + filename + '…');
+    fetch(svgUrl, { credentials: 'same-origin' })
+      .then(function(r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function(svgText) {
+        var blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
+        var img = new Image();
+        img.onload = function() {
+          URL.revokeObjectURL(url);
+          var cv = document.createElement('canvas');
+          cv.width = targetW;
+          cv.height = targetH;
+          var ctx = cv.getContext('2d');
+          if (!ctx) {
+            setStatus('Export failed: canvas unavailable.');
+            return;
+          }
+          ctx.clearRect(0, 0, targetW, targetH);
+          ctx.drawImage(img, 0, 0, targetW, targetH);
 
-        cv.toBlob(function(pngBlob) {
-          if (!pngBlob) return;
-          var pngUrl = URL.createObjectURL(pngBlob);
-          var a = document.createElement('a');
-          a.href = pngUrl;
-          a.download = filename;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          setTimeout(function() { URL.revokeObjectURL(pngUrl); }, 1000);
-        }, 'image/png');
-      };
-      img.onerror = function() {
-        URL.revokeObjectURL(url);
-      };
-      img.src = url;
-    })
-    .catch(function(err) { alert('Export failed: ' + err); });
-}
-document.querySelectorAll('button[data-svg]').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    exportPNG(btn.getAttribute('data-svg'), Number(btn.getAttribute('data-w')), Number(btn.getAttribute('data-h')), btn.getAttribute('data-out'));
+          cv.toBlob(function(pngBlob) {
+            if (!pngBlob) {
+              setStatus('Export failed: unable to encode PNG.');
+              return;
+            }
+            var pngUrl = URL.createObjectURL(pngBlob);
+            var a = document.createElement('a');
+            a.href = pngUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setStatus('Downloaded ' + filename + '.');
+            setTimeout(function() { URL.revokeObjectURL(pngUrl); }, 1000);
+          }, 'image/png');
+        };
+        img.onerror = function() {
+          URL.revokeObjectURL(url);
+          setStatus('Export failed: could not decode SVG.');
+        };
+        img.src = url;
+      })
+      .catch(function(err) {
+        setStatus('Export failed: ' + (err && err.message ? err.message : 'unknown error'));
+      });
+  }
+  document.querySelectorAll('button[data-svg]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      exportPNG(btn.getAttribute('data-svg'), Number(btn.getAttribute('data-w')), Number(btn.getAttribute('data-h')), btn.getAttribute('data-out'));
+    });
   });
-});
+})();
 </script>
 
 </body>
